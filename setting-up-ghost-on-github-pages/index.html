@@ -21,11 +21,11 @@
     <meta property="og:url" content="https://blog.dylanlu.com/setting-up-ghost-on-github-pages/" />
     <meta property="og:image" content="https://blog.dylanlu.com/content/images/2023/03/ghost.png" />
     <meta property="article:published_time" content="2023-03-26T16:02:42.000Z" />
-    <meta property="article:modified_time" content="2023-03-26T16:02:42.000Z" />
+    <meta property="article:modified_time" content="2023-03-26T17:17:30.000Z" />
     <meta property="article:tag" content="Dev" />
     <meta property="article:tag" content="Side Project" />
     
-    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Setting Up Ghost on GitHub Pages" />
     <meta name="twitter:description" content="Who wants to pay for a VPS anyway?" />
@@ -35,7 +35,7 @@
     <meta name="twitter:data1" content="Dylan Lu" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="Dev, Side Project" />
-    <meta name="twitter:site" content="@ghost" />
+    <meta name="twitter:site" content="@ThePickleGawd" />
     <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="640" />
     
@@ -71,7 +71,7 @@
     "headline": "Setting Up Ghost on GitHub Pages",
     "url": "https://blog.dylanlu.com/setting-up-ghost-on-github-pages/",
     "datePublished": "2023-03-26T16:02:42.000Z",
-    "dateModified": "2023-03-26T16:02:42.000Z",
+    "dateModified": "2023-03-26T17:17:30.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://blog.dylanlu.com/content/images/2023/03/ghost.png",
@@ -87,7 +87,7 @@
     <meta name="generator" content="Ghost 5.40" />
     <link rel="alternate" type="application/rss+xml" title="Dylan&#x27;s Dev Blog" href="https://blog.dylanlu.com/rss/" />
     
-    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="95cadc1cc0652e4ace5a304046" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.dylanlu.com/" crossorigin="anonymous"></script><style>:root {--ghost-accent-color: #FF1A75;}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="95cadc1cc0652e4ace5a304046" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.dylanlu.com/" crossorigin="anonymous"></script><style>:root {--ghost-accent-color: #252526;}</style>
     <link href="https://blog.dylanlu.com/webmentions/receive/" rel="webmention" />
 
 </head>
@@ -105,10 +105,7 @@
             </div>
 
             <nav class="gh-head-menu">
-                <ul class="nav">
-    <li class="nav-home"><a href="https://blog.dylanlu.com/">Home</a></li>
-</ul>
-
+                
             </nav>
 
             <div class="gh-head-actions">
@@ -174,10 +171,10 @@
     </header>
 
     <section class="gh-content gh-canvas">
-        <p>After seeing some random guy on Youtube and his crazy MIT Maker Portfolio, I looked into his profile a little bit and found that he has his own static blog. I think it would be cool to have my own too!</p><p>Since I've used Ghost before in my CS Capstone class, I thought I'd give it a try for myself. This time, however, I'll be hosting it statically on GitHub Pages because I'm too broke to afford a VPS. Oh well...</p><h2 id="setup-ghost">Setup Ghost</h2><p>To get started, I went to the <a href="https://ghost.org/docs/install/local/?ref=localhost">ghost docs</a> and followed the instructions. They had me install their ghost-cli and create a new ghost instance on my computer. After the setup finished, the ghost instance was ready to go, and I could access it on localhost:2368.</p><h2 id="generate-static-pages">Generate Static Pages</h2><p>Now the fun part.</p><p>I did some research and found ghost-static-site-generator (gssg). It looked promising, but when I installed it, I ran into some errors. Luckily some guy made a fork with these issues fixed, so I was able to get this working.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image.png" class="kg-image" alt loading="lazy" width="1317" height="382" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2023/03/image.png 1000w, https://blog.dylanlu.com/content/images/2023/03/image.png 1317w" sizes="(min-width: 720px) 720px"><figcaption>Thanks!</figcaption></figure><p>I cloned the repo and ran the following command to generate the "static" directory</p><!--kg-card-begin: markdown--><pre><code>node gssg/src/index.js --url 'https://blog.dylanlu.com'
+        <p>After seeing some random guy on Youtube and his crazy MIT Maker Portfolio, I looked into his profile a little bit and found that he has his own static blog. I think it would be cool to have my own too!</p><p>Since I've used Ghost before in my CS Capstone class, I thought I'd give it a try for myself. This time, however, I'll be hosting it statically on GitHub Pages because I'm too broke to afford a VPS. Oh well...</p><h2 id="setup-ghost">Setup Ghost</h2><p>To get started, I went to the <a href="https://ghost.org/docs/install/local/?ref=localhost">ghost docs</a> and followed the instructions. They had me install their ghost-cli and create a new ghost instance on my computer. After the setup finished, the ghost instance was ready to go, and I could access it on localhost:2368.</p><h2 id="generate-static-pages">Generate Static Pages</h2><p>Now the fun part.</p><p>I did some research and found ghost-static-site-generator (gssg). It looked promising, but when I installed it, I ran into some errors. Luckily some guy made a fork with these issues fixed, so I was able to get this working.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image.png" class="kg-image" alt loading="lazy" width="1317" height="382" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2023/03/image.png 1000w, https://blog.dylanlu.com/content/images/2023/03/image.png 1317w" sizes="(min-width: 720px) 720px"><figcaption>Thanks!</figcaption></figure><p>I cloned the repo and ran the following command to generate the "static" directory</p><!--kg-card-begin: markdown--><pre><code>node gssg/src/index.js --url https://blog.dylanlu.com
 </code></pre>
 <!--kg-card-end: markdown--><p>Boom! That was also kinda easy...</p><h2 id="update-dns">Update DNS</h2><p>We need to tell our DNS to route "blog.dylanlu.com" to our GitHub Pages site.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image-3.png" class="kg-image" alt loading="lazy" width="751" height="41" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image-3.png 600w, https://blog.dylanlu.com/content/images/2023/03/image-3.png 751w" sizes="(min-width: 720px) 720px"><figcaption>Update DNS on Google Domains</figcaption></figure><p>It was a really simple change to my Google Domains settings.</p><h2 id="github-pages">GitHub Pages</h2><p>Now it's time to host the static blog site.</p><p>I created a new GitHub called blog and created a custom domain in the pages setting. I also selected the main branch to deploy from.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image-2.png" class="kg-image" alt loading="lazy" width="770" height="620" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image-2.png 600w, https://blog.dylanlu.com/content/images/2023/03/image-2.png 770w" sizes="(min-width: 720px) 720px"><figcaption>GitHub Pages Settings</figcaption></figure><p>And now, every time I make a commit to the main branch, my blog will be updated!</p><h2 id="automating-the-boring-stuff">Automating the Boring Stuff</h2><p>Instead of manually typing stuff to update the blog, let's write some simple shell scripts.</p><figure class="kg-card kg-code-card"><pre><code class="language-bat">REM Compile to static files
-node gssg/src/index.js --url 'https://blog.dylanlu.com'
+node gssg/src/index.js --url https://blog.dylanlu.com
 
 REM Push to GitHub
 cd static
