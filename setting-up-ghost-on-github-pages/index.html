@@ -21,9 +21,8 @@
     <meta property="og:url" content="https://blog.dylanlu.com/setting-up-ghost-on-github-pages/" />
     <meta property="og:image" content="https://blog.dylanlu.com/content/images/2023/03/ghost.png" />
     <meta property="article:published_time" content="2023-03-26T16:02:42.000Z" />
-    <meta property="article:modified_time" content="2023-03-26T17:17:30.000Z" />
+    <meta property="article:modified_time" content="2023-03-28T00:37:36.000Z" />
     <meta property="article:tag" content="Dev" />
-    <meta property="article:tag" content="Side Project" />
     
     <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -34,7 +33,7 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Dylan Lu" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Dev, Side Project" />
+    <meta name="twitter:data2" content="Dev" />
     <meta name="twitter:site" content="@ThePickleGawd" />
     <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="640" />
@@ -71,14 +70,14 @@
     "headline": "Setting Up Ghost on GitHub Pages",
     "url": "https://blog.dylanlu.com/setting-up-ghost-on-github-pages/",
     "datePublished": "2023-03-26T16:02:42.000Z",
-    "dateModified": "2023-03-26T17:17:30.000Z",
+    "dateModified": "2023-03-28T00:37:36.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://blog.dylanlu.com/content/images/2023/03/ghost.png",
         "width": 1280,
         "height": 640
     },
-    "keywords": "Dev, Side Project",
+    "keywords": "Dev",
     "description": "Who wants to pay for a VPS anyway?",
     "mainEntityOfPage": "https://blog.dylanlu.com/setting-up-ghost-on-github-pages/"
 }
@@ -91,7 +90,7 @@
     <link href="https://blog.dylanlu.com/webmentions/receive/" rel="webmention" />
 
 </head>
-<body class="post-template tag-dev tag-side-project is-head-left-logo has-cover">
+<body class="post-template tag-dev is-head-left-logo has-cover">
 <div class="viewport">
 
     <header id="gh-head" class="gh-head outer">
@@ -100,7 +99,6 @@
                 <a class="gh-head-logo no-image" href="https://blog.dylanlu.com">
                         Dylan&#x27;s Dev Blog
                 </a>
-                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
                 <button class="gh-burger"></button>
             </div>
 
@@ -112,7 +110,6 @@
             </nav>
 
             <div class="gh-head-actions">
-                        <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
             </div>
         </div>
     </header>
@@ -123,7 +120,7 @@
 
 
 <main id="site-main" class="site-main">
-<article class="article post tag-dev tag-side-project ">
+<article class="article post tag-dev ">
 
     <header class="article-header gh-canvas">
 
@@ -152,7 +149,7 @@
                 <h4 class="author-name"><a href="/author/dylan/">Dylan Lu</a></h4>
                 <div class="byline-meta-content">
                     <time class="byline-meta-date" datetime="2023-03-26">Mar 26, 2023</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
                 </div>
             </div>
 
@@ -176,7 +173,7 @@
     <section class="gh-content gh-canvas">
         <p>After seeing some random guy on Youtube and his crazy MIT Maker Portfolio, I looked into his profile a little bit and found that he has his own static blog. I think it would be cool to have my own too!</p><p>Since I've used Ghost before in my CS Capstone class, I thought I'd give it a try for myself. This time, however, I'll be hosting it statically on GitHub Pages because I'm too broke to afford a VPS. Oh well...</p><h2 id="setup-ghost">Setup Ghost</h2><p>To get started, I went to the <a href="https://ghost.org/docs/install/local/?ref=localhost">ghost docs</a> and followed the instructions. They had me install their ghost-cli and create a new ghost instance on my computer. After the setup finished, the ghost instance was ready to go, and I could access it on localhost:2368.</p><h2 id="generate-static-pages">Generate Static Pages</h2><p>Now the fun part.</p><p>I did some research and found ghost-static-site-generator (gssg). It looked promising, but when I installed it, I ran into some errors. Luckily some guy made a fork with these issues fixed, so I was able to get this working.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image.png" class="kg-image" alt loading="lazy" width="1317" height="382" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2023/03/image.png 1000w, https://blog.dylanlu.com/content/images/2023/03/image.png 1317w" sizes="(min-width: 720px) 720px"><figcaption>Thanks!</figcaption></figure><p>I cloned the repo and ran the following command to generate the "static" directory</p><!--kg-card-begin: markdown--><pre><code>node gssg/src/index.js --url https://blog.dylanlu.com
 </code></pre>
-<!--kg-card-end: markdown--><p>Boom! That was also kinda easy...</p><h2 id="update-dns">Update DNS</h2><p>We need to tell our DNS to route "blog.dylanlu.com" to our GitHub Pages site.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image-3.png" class="kg-image" alt loading="lazy" width="751" height="41" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image-3.png 600w, https://blog.dylanlu.com/content/images/2023/03/image-3.png 751w" sizes="(min-width: 720px) 720px"><figcaption>Update DNS on Google Domains</figcaption></figure><p>It was a really simple change to my Google Domains settings.</p><h2 id="github-pages">GitHub Pages</h2><p>Now it's time to host the static blog site.</p><p>I created a new GitHub called blog and created a custom domain in the pages setting. I also selected the main branch to deploy from.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image-2.png" class="kg-image" alt loading="lazy" width="770" height="620" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image-2.png 600w, https://blog.dylanlu.com/content/images/2023/03/image-2.png 770w" sizes="(min-width: 720px) 720px"><figcaption>GitHub Pages Settings</figcaption></figure><p>And now, every time I make a commit to the main branch, my blog will be updated!</p><h2 id="automating-the-boring-stuff">Automating the Boring Stuff</h2><p>Instead of manually typing stuff to update the blog, let's write some simple shell scripts.</p><figure class="kg-card kg-code-card"><pre><code class="language-bat">REM Compile to static files
+<!--kg-card-end: markdown--><p>Boom! That was also kinda easy...</p><h2 id="update-dns">Update DNS</h2><p>We need to tell our DNS to route "blog.dylanlu.com" to our GitHub Pages site.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image-3.png" class="kg-image" alt loading="lazy" width="751" height="41" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image-3.png 600w, https://blog.dylanlu.com/content/images/2023/03/image-3.png 751w" sizes="(min-width: 720px) 720px"><figcaption>Update DNS on Google Domains</figcaption></figure><p>It was a really simple change to my Google Domains settings.</p><h2 id="github-pages">GitHub Pages</h2><p>Now it's time to host the static blog site.</p><p>I created a new GitHub called blog and created a custom domain in the Pages setting. I also selected the main branch to deploy from.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/image-2.png" class="kg-image" alt loading="lazy" width="770" height="620" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/image-2.png 600w, https://blog.dylanlu.com/content/images/2023/03/image-2.png 770w" sizes="(min-width: 720px) 720px"><figcaption>GitHub Pages Settings</figcaption></figure><p>And now, every time I make a commit to the main branch, my blog will be updated!</p><h2 id="automating-the-boring-stuff">Automating the Boring Stuff</h2><p>Instead of manually typing stuff to update the blog, let's write some simple shell scripts.</p><figure class="kg-card kg-code-card"><pre><code class="language-bat">REM Compile to static files
 node gssg/src/index.js --url https://blog.dylanlu.com
 
 REM Push to GitHub
@@ -186,7 +183,7 @@ git add .
 git commit -m "Update Blog"
 git push
 
-PAUSE</code></pre><figcaption>blog/push.bat</figcaption></figure><p>This simple script will run the static site generator, and then upload the changes to GitHub. Boom! That was easy...</p><h2 id="conclusion">Conclusion</h2><p>So that was a really simple way to get a static ghost blog up and running for free. In the future, I hope to post some more to document my process as a developer/engineer. Thanks for reading.</p><h2 id="issues-i-ran-into-and-fixed">Issues I Ran Into and Fixed</h2><ul><li>The gssg repo was not maintained and did not work for the latest ghost version, but I was able to find a fork that had this issue fixed</li><li>Even though --productionDomain flag for gssg should be the same as --url, the first one did not work. I spend an hour trying to figure out why</li></ul>
+PAUSE</code></pre><figcaption>blog/push.bat</figcaption></figure><p>This simple script will run the static site generator, and then upload the changes to GitHub. Boom! That was easy...</p><h2 id="conclusion">Conclusion</h2><p>So that was a really simple way to get a static ghost blog up and running for free. In the future, I hope to post some more to document my process as a developer/engineer. Thanks for reading.</p><h2 id="issues-i-ran-into-and-fixed">Issues I Ran Into and Fixed</h2><ul><li>The gssg repo was not maintained and did not work for the latest ghost version, but I was able to find a fork that had this issue fixed</li><li>Even though --productionDomain flag for gssg should be the same as --url, the first one did not work. I spend an hour trying to figure out why</li><li>The search function does not work, so I completely disabled it (see picture below).</li></ul><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/03/Screenshot-2023-03-27-173339.png" class="kg-image" alt loading="lazy" width="1353" height="685" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/03/Screenshot-2023-03-27-173339.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2023/03/Screenshot-2023-03-27-173339.png 1000w, https://blog.dylanlu.com/content/images/2023/03/Screenshot-2023-03-27-173339.png 1353w" sizes="(min-width: 720px) 720px"><figcaption>Disabling search icon in theme settings</figcaption></figure>
     </section>
 
 
@@ -204,12 +201,12 @@ PAUSE</code></pre><figcaption>blog/push.bat</figcaption></figure><p>This simple 
     <a class="post-card-image-link" href="/designing-a-better-lunchtrak-case-with-fusion360/">
 
         <img class="post-card-image"
-            srcset="/content/images/size/w300/2023/03/fusion360-zdjecie-produktu.jpg 300w,
-                    /content/images/size/w600/2023/03/fusion360-zdjecie-produktu.jpg 600w,
-                    /content/images/size/w1000/2023/03/fusion360-zdjecie-produktu.jpg 1000w,
-                    /content/images/size/w2000/2023/03/fusion360-zdjecie-produktu.jpg 2000w"
+            srcset="/content/images/size/w300/2023/03/Fusion360_Logo-1.png 300w,
+                    /content/images/size/w600/2023/03/Fusion360_Logo-1.png 600w,
+                    /content/images/size/w1000/2023/03/Fusion360_Logo-1.png 1000w,
+                    /content/images/size/w2000/2023/03/Fusion360_Logo-1.png 2000w"
             sizes="(max-width: 1000px) 400px, 800px"
-            src="/content/images/size/w600/2023/03/fusion360-zdjecie-produktu.jpg"
+            src="/content/images/size/w600/2023/03/Fusion360_Logo-1.png"
             alt="Designing a Better LunchTrak Case with Fusion360"
             loading="lazy"
         />
@@ -251,7 +248,7 @@ PAUSE</code></pre><figcaption>blog/push.bat</figcaption></figure><p>This simple 
             <nav class="site-footer-nav">
                 
             </nav>
-            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+            <div><a href="https://dylanlu.com/" target="_blank" rel="noopener">Portfolio</a></div>
         </div>
     </footer>
 
