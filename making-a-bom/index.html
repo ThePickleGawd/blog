@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Making a BOM to Get LunchTrak Tags Ready for Manufacturing</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=a0b1e01c72" />
+
+    <meta name="description" content="BOMs are important for telling manufacturers what parts should be used in a PCB design. In this article, I&#x27;ll explain my process of creating one without a lot of effort." />
+    <link rel="icon" href="https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png" type="image/png" />
+    <link rel="canonical" href="https://blog.dylanlu.com/making-a-bom/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Dylan&#x27;s Dev Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Making a BOM to Get LunchTrak Tags Ready for Manufacturing" />
+    <meta property="og:description" content="BOMs are important for telling manufacturers what parts should be used in a PCB design. In this article, I&#x27;ll explain my process of creating one without a lot of effort." />
+    <meta property="og:url" content="https://blog.dylanlu.com/making-a-bom/" />
+    <meta property="og:image" content="https://blog.dylanlu.com/content/images/2023/04/Screenshot-2023-04-12-222552.png" />
+    <meta property="article:published_time" content="2023-04-13T05:29:41.000Z" />
+    <meta property="article:modified_time" content="2023-04-13T05:29:41.000Z" />
+    <meta property="article:tag" content="LunchTrak" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Making a BOM to Get LunchTrak Tags Ready for Manufacturing" />
+    <meta name="twitter:description" content="BOMs are important for telling manufacturers what parts should be used in a PCB design. In this article, I&#x27;ll explain my process of creating one without a lot of effort." />
+    <meta name="twitter:url" content="https://blog.dylanlu.com/making-a-bom/" />
+    <meta name="twitter:image" content="https://blog.dylanlu.com/content/images/2023/04/Screenshot-2023-04-12-222552.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Dylan Lu" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="LunchTrak" />
+    <meta name="twitter:site" content="@ThePickleGawd" />
+    <meta property="og:image:width" content="912" />
+    <meta property="og:image:height" content="944" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dylan&#x27;s Dev Blog",
+        "url": "https://blog.dylanlu.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Dylan Lu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/2023/03/IMG_4955-2.jpg",
+            "width": 2000,
+            "height": 2096
+        },
+        "url": "https://blog.dylanlu.com/author/dylan/",
+        "sameAs": [
+            "https://dylanlu.com"
+        ]
+    },
+    "headline": "Making a BOM to Get LunchTrak Tags Ready for Manufacturing",
+    "url": "https://blog.dylanlu.com/making-a-bom/",
+    "datePublished": "2023-04-13T05:29:41.000Z",
+    "dateModified": "2023-04-13T05:29:41.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dylanlu.com/content/images/2023/04/Screenshot-2023-04-12-222552.png",
+        "width": 912,
+        "height": 944
+    },
+    "keywords": "LunchTrak",
+    "description": "BOMs are important for telling manufacturers what parts should be used in a PCB design. In this article, I&#x27;ll explain my process of creating one without a lot of effort.",
+    "mainEntityOfPage": "https://blog.dylanlu.com/making-a-bom/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.40" />
+    <link rel="alternate" type="application/rss+xml" title="Dylan&#x27;s Dev Blog" href="https://blog.dylanlu.com/rss/" />
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="95cadc1cc0652e4ace5a304046" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.dylanlu.com/" crossorigin="anonymous"></script>
+    <link href="https://blog.dylanlu.com/webmentions/receive/" rel="webmention" />
+    <link rel="stylesheet" type="text/css" href="https://blog.gunnhigh.school/public/cards.min.css?v=db70eba112">
+<script defer="" src="https://blog.gunnhigh.school/public/cards.min.css?v=db70eba112"></script><style>:root {--ghost-accent-color: #252526;}</style>
+
+</head>
+<body class="post-template tag-lunchtrak is-head-left-logo has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="https://blog.dylanlu.com">
+                        Dylan&#x27;s Dev Blog
+                </a>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-about"><a href="https://blog.dylanlu.com/about/">About</a></li>
+    <li class="nav-timeline"><a href="https://blog.dylanlu.com/timeline/">Timeline</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-lunchtrak ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="/tag/lunchtrak/">LunchTrak</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">Making a BOM to Get LunchTrak Tags Ready for Manufacturing</h1>
+
+            <p class="article-excerpt">BOMs are important for telling manufacturers what parts should be used in a PCB design. In this article, I&#x27;ll explain my process of creating one without a lot of effort.</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="/author/dylan/" class="author-avatar">
+                        <img class="author-profile-image" src="/content/images/size/w100/2023/03/IMG_4955-2.jpg" alt="Dylan Lu" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="/author/dylan/">Dylan Lu</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2023-04-12">Apr 12, 2023</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="/content/images/size/w300/2023/04/Screenshot-2023-04-12-222552.png 300w,
+                            /content/images/size/w600/2023/04/Screenshot-2023-04-12-222552.png 600w,
+                            /content/images/size/w1000/2023/04/Screenshot-2023-04-12-222552.png 1000w,
+                            /content/images/size/w2000/2023/04/Screenshot-2023-04-12-222552.png 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="/content/images/size/w2000/2023/04/Screenshot-2023-04-12-222552.png"
+                    alt="Making a BOM to Get LunchTrak Tags Ready for Manufacturing"
+                />
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>Summer is almost here. With only 7 weeks to go, I have a lot of work before I am ready to get all of my LunchTrak tags manufactured and shipped. One of the biggest things to do beforehand, however, is to get a final invoice ready for the school to review and decide whether they want to pay. I've always had an estimate of how much the parts would cost overall, but I will need a more succinct list. That's where the Bill of Materials (or BOM) comes in. The BOM is mainly used to tell the manufacturers what parts I want to use in my PCB and where they should source them, but it also helps give a final price for the board. Originally, I was too lazy to research which parts to use, and that is partly because I didn't know where to look. Luckily, some Redditors suggested <a href="https://octopart.com/?ref=localhost">Octopart </a>because of its powerful search engine for parts.</p><h2 id="researching-parts">Researching Parts</h2><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/04/image-1.png" class="kg-image" alt loading="lazy" width="1920" height="983" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/04/image-1.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2023/04/image-1.png 1000w, https://blog.dylanlu.com/content/images/size/w1600/2023/04/image-1.png 1600w, https://blog.dylanlu.com/content/images/2023/04/image-1.png 1920w" sizes="(min-width: 720px) 720px"><figcaption>Octopart</figcaption></figure><p>For example, if I wanted to find a resistor component with a specific resistance, I would go to Passive Components --&gt; Resistors --&gt; Chip SMD Resistors and then filter out the right footprint and resistance values. It even compares costs across many different distributors, making it nice for me to pick the best price. I went with Mouser for most components, though, because of its very high reputation.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/04/image-2.png" class="kg-image" alt loading="lazy" width="1585" height="455" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/04/image-2.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2023/04/image-2.png 1000w, https://blog.dylanlu.com/content/images/2023/04/image-2.png 1585w" sizes="(min-width: 720px) 720px"><figcaption>Searching for resistors</figcaption></figure><p>After finding the component that I wanted, it would take me to the distributor's official page for more details on the exact part # to put in my BOM.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/04/image-4.png" class="kg-image" alt loading="lazy" width="1220" height="720" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/04/image-4.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2023/04/image-4.png 1000w, https://blog.dylanlu.com/content/images/2023/04/image-4.png 1220w" sizes="(min-width: 720px) 720px"><figcaption>Mouser Electronics</figcaption></figure><h2 id="putting-it-all-together">Putting It All Together</h2><p>With the parts in mind, I could now go back to EasyEDA and fill in the corresponding data for each component. It took a while, but it was oddly satisfying entering all of this data.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/04/image-5.png" class="kg-image" alt loading="lazy" width="811" height="371" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/04/image-5.png 600w, https://blog.dylanlu.com/content/images/2023/04/image-5.png 811w" sizes="(min-width: 720px) 720px"><figcaption>EasyEDA Schematic Editor</figcaption></figure><p>And just like that, we can now easily generate a BOM with all of the information we need. Thank God I didn't have to fill this table out by hand.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/04/image-6.png" class="kg-image" alt loading="lazy" width="969" height="537" srcset="https://blog.dylanlu.com/content/images/size/w600/2023/04/image-6.png 600w, https://blog.dylanlu.com/content/images/2023/04/image-6.png 969w" sizes="(min-width: 720px) 720px"><figcaption>Exporting my BOM</figcaption></figure><h2 id="conclusion">Conclusion</h2><p>With a BOM created, I'll be able to get real quotes from the manufacturer on building my LunchTrak tags; the school will be happy to finally know how much the project will cost. The only sad thing, though, is that the ATM2 Module I am using is not listed by any major parts distributor. PCBWay, which is the manufacturer that I will most likely use, does support user-submitted parts, but it is kinda annoying to have to do that in the first place. Oh well, I guess we'll see how that goes.</p>
+    </section>
+
+
+</article>
+</main>
+
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/ghost-cards-work-on-editor-but-not-preview/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp 300w,
+                    /content/images/size/w600/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp 600w,
+                    /content/images/size/w1000/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp 1000w,
+                    /content/images/size/w2000/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp"
+            alt="Ghost Cards Work On Editor, But Not Preview"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/ghost-cards-work-on-editor-but-not-preview/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Ghost Cards Work On Editor, But Not Preview
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Stupid bug...</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2023-03-27">Mar 27, 2023</time>
+                <span class="post-card-meta-length">1 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/designing-a-better-lunchtrak-case-with-fusion360/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2023/03/Fusion360_Logo-1.png 300w,
+                    /content/images/size/w600/2023/03/Fusion360_Logo-1.png 600w,
+                    /content/images/size/w1000/2023/03/Fusion360_Logo-1.png 1000w,
+                    /content/images/size/w2000/2023/03/Fusion360_Logo-1.png 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2023/03/Fusion360_Logo-1.png"
+            alt="Designing a Better LunchTrak Case with Fusion360"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/designing-a-better-lunchtrak-case-with-fusion360/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Designing a Better LunchTrak Case with Fusion360
+                </h2>
+            </header>
+                <div class="post-card-excerpt">I finally designed a case with Fusion360, something I've been putting off for a couple of months now.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2023-03-26">Mar 26, 2023</time>
+                <span class="post-card-meta-length">2 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/setting-up-ghost-on-github-pages/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2023/03/ghost.png 300w,
+                    /content/images/size/w600/2023/03/ghost.png 600w,
+                    /content/images/size/w1000/2023/03/ghost.png 1000w,
+                    /content/images/size/w2000/2023/03/ghost.png 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2023/03/ghost.png"
+            alt="Setting Up Ghost on GitHub Pages"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/setting-up-ghost-on-github-pages/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Setting Up Ghost on GitHub Pages
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Who wants to pay for a VPS anyway?</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2023-03-26">Mar 26, 2023</time>
+                <span class="post-card-meta-length">3 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="https://blog.dylanlu.com">Dylan&#x27;s Dev Blog</a> &copy; 2023</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://dylanlu.com/" target="_blank" rel="noopener">Portfolio</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="/assets/built/casper.js?v=a0b1e01c72"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+
+
+</body>
+</html>
