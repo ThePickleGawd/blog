@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>RSSI Calibration For Better BLE Proximity</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=3472ddd40a" />
+
+    <meta name="description" content="Exploring a potential solution for RSSI issues in my LunchTrak project" />
+    <link rel="icon" href="https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png" type="image/png" />
+    <link rel="canonical" href="https://blog.dylanlu.com/rssi-calibration-for-better-ble-proximity/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Dylan&#x27;s Dev Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="RSSI Calibration For Better BLE Proximity" />
+    <meta property="og:description" content="Exploring a potential solution for RSSI issues in my LunchTrak project" />
+    <meta property="og:url" content="https://blog.dylanlu.com/rssi-calibration-for-better-ble-proximity/" />
+    <meta property="og:image" content="https://blog.dylanlu.com/content/images/2023/04/PA_Image-1.jpg" />
+    <meta property="article:published_time" content="2023-04-24T04:53:23.000Z" />
+    <meta property="article:modified_time" content="2023-04-24T04:53:23.000Z" />
+    <meta property="article:tag" content="LunchTrak" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RSSI Calibration For Better BLE Proximity" />
+    <meta name="twitter:description" content="Exploring a potential solution for RSSI issues in my LunchTrak project" />
+    <meta name="twitter:url" content="https://blog.dylanlu.com/rssi-calibration-for-better-ble-proximity/" />
+    <meta name="twitter:image" content="https://blog.dylanlu.com/content/images/2023/04/PA_Image-1.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Dylan Lu" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="LunchTrak" />
+    <meta name="twitter:site" content="@ThePickleGawd" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dylan&#x27;s Dev Blog",
+        "url": "https://blog.dylanlu.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Dylan Lu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/2023/03/IMG_4955-2.jpg",
+            "width": 2000,
+            "height": 2096
+        },
+        "url": "https://blog.dylanlu.com/author/dylan/",
+        "sameAs": [
+            "https://dylanlu.com"
+        ]
+    },
+    "headline": "RSSI Calibration For Better BLE Proximity",
+    "url": "https://blog.dylanlu.com/rssi-calibration-for-better-ble-proximity/",
+    "datePublished": "2023-04-24T04:53:23.000Z",
+    "dateModified": "2023-04-24T04:53:23.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dylanlu.com/content/images/2023/04/PA_Image-1.jpg",
+        "width": 1200,
+        "height": 800
+    },
+    "keywords": "LunchTrak",
+    "description": "Exploring a potential solution for RSSI issues in my LunchTrak project",
+    "mainEntityOfPage": "https://blog.dylanlu.com/rssi-calibration-for-better-ble-proximity/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.40" />
+    <link rel="alternate" type="application/rss+xml" title="Dylan&#x27;s Dev Blog" href="https://blog.dylanlu.com/rss/" />
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="95cadc1cc0652e4ace5a304046" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.dylanlu.com/" crossorigin="anonymous"></script>
+    <link href="https://blog.dylanlu.com/webmentions/receive/" rel="webmention" />
+    <link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6">
+<script defer="" src="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6"></script>
+<link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.css?v=db70eba112">
+<script defer="" src="https://ghost.org/changelog/public/cards.min.css?v=db70eba112"></script><style>:root {--ghost-accent-color: #252526;}</style>
+
+</head>
+<body class="post-template tag-lunchtrak is-head-left-logo has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="https://blog.dylanlu.com">
+                        Dylan&#x27;s Dev Blog
+                </a>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-about"><a href="https://blog.dylanlu.com/about/">About</a></li>
+    <li class="nav-timeline"><a href="https://blog.dylanlu.com/timeline/">Timeline</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-lunchtrak ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="/tag/lunchtrak/">LunchTrak</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">RSSI Calibration For Better BLE Proximity</h1>
+
+            <p class="article-excerpt">Exploring a potential solution for RSSI issues in my LunchTrak project</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="/author/dylan/" class="author-avatar">
+                        <img class="author-profile-image" src="/content/images/size/w100/2023/03/IMG_4955-2.jpg" alt="Dylan Lu" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="/author/dylan/">Dylan Lu</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2023-04-23">Apr 23, 2023</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="/content/images/size/w300/2023/04/PA_Image-1.jpg 300w,
+                            /content/images/size/w600/2023/04/PA_Image-1.jpg 600w,
+                            /content/images/size/w1000/2023/04/PA_Image-1.jpg 1000w,
+                            /content/images/size/w2000/2023/04/PA_Image-1.jpg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="/content/images/size/w2000/2023/04/PA_Image-1.jpg"
+                    alt="RSSI Calibration For Better BLE Proximity"
+                />
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>After meeting with Dave over lunch, we came up with the idea to "calibrate" the RSSI threshold for the check-in system before the student walks to the exit. The problem with how it is currently set up is that depending on the orientation of the beacon, the RSSI can significantly differ from other beacons, meaning that there is no "perfect" RSSI threshold to check students in. Here's how I imagine this new calibration system:</p><ul><li>The "calibration" scanners come either at the entrance or can be placed behind the real scanners (at least 1-2 meters).</li><li>They will record the maximum average RSSI for any student ID and will report this number to the main scanner. Any filtering techniques will be applicable</li><li>The main scanner will now look for the RSSI threshold set by the calibration scanner</li></ul><p>One problem I envision right away is that if someone is walking around the exit (who did not go to the line), the calibration scanner will detect a lower RSSI and allow the main scanner to scan them in. This behavior is a huge issue. I think the best solution to this problem is to have a bare minimum RSSI that the calibration and main sensor must meet, like -70dbm for example.</p><p>Randomly, here's my new packet design to handle the calibrator vs extender packet. The "-80" will be replaced with the actual RSSI, and the five digits are the student ID numbers without the "950".</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/04/image-13.png" class="kg-image" alt loading="lazy" width="394" height="117"><figcaption>Calibrator/Extender Packet</figcaption></figure><p>Update (4/23/23): It's been two months and I have procrastinated on writing this article for too long. The calibration kinda works, but it is actually not needed. The people will be very close to the scanner and will likely not block the RSSI too much. Here's one of my first attempts with the calibrator:</p><figure class="kg-card kg-video-card"><div class="kg-video-container"><video src="https://blog.dylanlu.com/content/media/2023/04/IMG_3347.mp4" poster="https://img.spacergif.org/v1/1080x1920/0a/spacer.png" width="1080" height="1920" playsinline preload="metadata" style="background: transparent url('https://blog.dylanlu.com/content/images/2023/04/media-thumbnail-ember3315.jpg') 50% 50% / cover no-repeat;"></video><div class="kg-video-overlay"><button class="kg-video-large-play-icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"/></svg></button></div><div class="kg-video-player-container"><div class="kg-video-player"><button class="kg-video-play-icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"/></svg></button><button class="kg-video-pause-icon kg-video-hide"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"/><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"/></svg></button><span class="kg-video-current-time">0:00</span><div class="kg-video-time">/<span class="kg-video-duration"></span></div><input type="range" class="kg-video-seek-slider" max="100" value="0"><button class="kg-video-playback-rate">1&#215;</button><button class="kg-video-unmute-icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"/></svg></button><button class="kg-video-mute-icon kg-video-hide"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"/></svg></button><input type="range" class="kg-video-volume-slider" max="100" value="100"></div></div></div></figure>
+    </section>
+
+
+</article>
+</main>
+
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/mermaid-diagrams/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2023/04/Screenshot-2023-04-23-153920.png 300w,
+                    /content/images/size/w600/2023/04/Screenshot-2023-04-23-153920.png 600w,
+                    /content/images/size/w1000/2023/04/Screenshot-2023-04-23-153920.png 1000w,
+                    /content/images/size/w2000/2023/04/Screenshot-2023-04-23-153920.png 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2023/04/Screenshot-2023-04-23-153920.png"
+            alt="Mermaid Diagrams"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/mermaid-diagrams/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Mermaid Diagrams
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Making cool diagrams for my LunchTrak project</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2023-04-23">Apr 23, 2023</time>
+                <span class="post-card-meta-length">2 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/making-a-bom/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2023/04/Screenshot-2023-04-12-222552.png 300w,
+                    /content/images/size/w600/2023/04/Screenshot-2023-04-12-222552.png 600w,
+                    /content/images/size/w1000/2023/04/Screenshot-2023-04-12-222552.png 1000w,
+                    /content/images/size/w2000/2023/04/Screenshot-2023-04-12-222552.png 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2023/04/Screenshot-2023-04-12-222552.png"
+            alt="Making a BOM to Get LunchTrak Tags Ready for Manufacturing"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/making-a-bom/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Making a BOM to Get LunchTrak Tags Ready for Manufacturing
+                </h2>
+            </header>
+                <div class="post-card-excerpt">BOMs are important for telling manufacturers what parts should be used in a PCB design. In this article, I'll explain my process of creating one without a lot of effort.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2023-04-12">Apr 12, 2023</time>
+                <span class="post-card-meta-length">3 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/ghost-cards-work-on-editor-but-not-preview/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp 300w,
+                    /content/images/size/w600/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp 600w,
+                    /content/images/size/w1000/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp 1000w,
+                    /content/images/size/w2000/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2023/03/cards_hu530bde54718f2b313fb590dbef31cd87_116580_932x0_resize_q100_h2_box_3.webp"
+            alt="Ghost Cards Work On Editor, But Not Preview"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/ghost-cards-work-on-editor-but-not-preview/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Ghost Cards Work On Editor, But Not Preview
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Stupid bug...</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2023-03-27">Mar 27, 2023</time>
+                <span class="post-card-meta-length">2 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="https://blog.dylanlu.com">Dylan&#x27;s Dev Blog</a> &copy; 2023</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://dylanlu.com/" target="_blank" rel="noopener">Portfolio</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="/assets/built/casper.js?v=3472ddd40a"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+
+
+</body>
+</html>
