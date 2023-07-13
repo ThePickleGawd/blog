@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=8e951c6bb9" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=315c8f8898" />
 
     <meta name="description" content="The culmination of all the hard work I put into LunchTrak. I will summarize what happened leading up to the pilot and what takeaways I got from it. Pretty fun right?" />
     <link rel="icon" href="https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png" type="image/png" />
@@ -22,7 +22,7 @@
     <meta property="og:url" content="https://blog.dylanlu.com/lunchtrak-summer-pilot/" />
     <meta property="og:image" content="https://blog.dylanlu.com/content/images/2023/06/LunchTrak-Logo-06--1--2.png" />
     <meta property="article:published_time" content="2023-06-25T06:09:40.000Z" />
-    <meta property="article:modified_time" content="2023-06-25T06:17:45.000Z" />
+    <meta property="article:modified_time" content="2023-06-28T00:55:32.000Z" />
     <meta property="article:tag" content="LunchTrak" />
     
     <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982" />
@@ -71,7 +71,7 @@
     "headline": "LunchTrak Summer Pilot",
     "url": "https://blog.dylanlu.com/lunchtrak-summer-pilot/",
     "datePublished": "2023-06-25T06:09:40.000Z",
-    "dateModified": "2023-06-25T06:17:45.000Z",
+    "dateModified": "2023-06-28T00:55:32.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://blog.dylanlu.com/content/images/2023/06/LunchTrak-Logo-06--1--2.png",
@@ -92,7 +92,16 @@
     <link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6">
 <script defer="" src="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6"></script>
 <link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.css?v=db70eba112">
-<script defer="" src="https://ghost.org/changelog/public/cards.min.css?v=db70eba112"></script><style>:root {--ghost-accent-color: #252526;}</style>
+<script defer="" src="https://ghost.org/changelog/public/cards.min.css?v=db70eba112"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDGM6S5BE1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QDGM6S5BE1');
+</script><style>:root {--ghost-accent-color: #252526;}</style>
 
 </head>
 <body class="post-template tag-lunchtrak is-head-left-logo has-cover">
@@ -190,20 +199,7 @@
   <div style="position:relative;padding-top:56.25%;">
     <iframe src="https://drive.google.com/file/d/1HjNhyPO5jtj-Tc_rMRiLtedQIbFbzp99/preview" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;">
   </iframe></div>
-</div><!--kg-card-end: html--><p></p><p>I can't stand rewatching it for more than 10 seconds; it was a disaster. The biggest issue on my end is that my scanner would scan students in immediately as they entered the room, meaning that the lunch worker wouldn't see their names pop up as they left the room. This problem is hard to fix due to the unstable nature of RSSI and Bluetooth. The next problem that you might have seen is that numbers would combine into something like 95000000950000001 when someone is typing their number and a LunchTrak test is right behind them. This is a software issue on their end, but it is still something I have to consider when developing a new solution.</p><h3 id="takeaways">Takeaways</h3><p>I was very disappointed but also surprisingly relieved that the pilot was over; all of my worries and stress just disappeared. I knew that I would need to update everyone who helped me with the project, so I tried thinking of ways to phrase how the pilot went. Here's the email I sent out.</p><!--kg-card-begin: markdown--><pre><code>Hi All,
-
-Just wanted to give you a quick update on my LunchTrak testing yesterday during summer school.
-
-Due to a problem during manufacturing, many of the tags were damaged and only 26 of the 75 tags worked properly. I was at least able to hand the working ones out to my Living Skills class. Because there weren't that many tags, we ended up mixing the lines with both LunchTrak testers and students who typed their IDs. The problem is that when a student types their number into the software, there is a short delay before the software registers that number. If a student with LunchTrak is right behind, the two numbers might be combined, leading to something like 9500000195000002. We had to ask the students to retype their numbers. Another problem is that a couple of students were mistakenly picked up by my scanner upon entering the room, causing confusion when they tried to exit because their names would not show up again. I am still looking into why this problem occurred and how I can prevent it.
-
-Though the pilot did not go exactly as I planned, there are some positive takeaways. The students who were scanned in correctly had no delay and enjoyed the convenience of not needing to enter their ID. At the very least, this experiment helped confirm the idea that skipping the keypads leads to time and convenience benefits. I just need to focus on ensuring the above issues do not happen.
-
-Overall, I will be brainstorming and tinkering with potential fixes to solve the issues mentioned above. Thank you all for your help with my project. I will keep you updated on my progress.
-
-Thanks,
-Dylan
-</code></pre>
-<!--kg-card-end: markdown--><p>So yeah, admit your faults early and then focus on the positives! (see my post on the book <a href="https://blog.dylanlu.com/how-to-win-friends-and-influence-people/?ref=localhost">How to Win Friends and Influence People</a>)</p><h2 id="conclusion-lessons-and-whats-next">Conclusion, Lessons, and What's Next</h2><p>I spent 6 months building a product that didn't work. But it wasn't wasted: the students who were successfully scanned in loved the product and its speed + convenience factor). My "<a href="https://blog.dylanlu.com/the-lean-startup/?ref=localhost">Lean Startup</a>" Spidey-sense tells me that I had just confirmed my value hypothesis, but I will need to pivot on the underlying technology. If I had read the book earlier, I would know that 6 months is a wayyy too long turnaround time to run an experiment like this. I should have at least tested it with my friends earlier on.</p><p>Seeing the results of this experiment could easily make me depressed if I don't try seeing it from the positive side. For a first product, being able to demo it to PAUSD administrators, get them to pay for it, actually go through the manufacturing process, and have everything on time for a pilot is actually very encouraging news. I have the ability to get my ideas and products out there, I just need to focus on getting it to work next time (this should come easier as I learn more and get better). The fact that I have my own LLC should make me happy enough. I can give it a new name (maybe LuWang LLC, or probably something else) and make LunchTrak a DBA. Then I can make all my small businesses a DBA to my parent LLC. Dude, I have a business bank account and credit card. Why should I be upset?</p><p>I'm not sure exactly what the future looks like for LunchTrak, but I do not intend on giving up right away. I will, however, take a small break from it to explore some other projects like my 3D Printed Guardian Sword, Gunn Alumni (complete pivot), and Gunn Elimination. I have a lot of cool things to work on this summer and I look forward to all of them. Okay, maybe not so much on my college essays.</p>
+</div><!--kg-card-end: html--><p></p><p>I can't stand rewatching it for more than 10 seconds; it was a disaster. The biggest issue on my end is that my scanner would scan students in immediately as they entered the room, meaning that the lunch worker wouldn't see their names pop up as they left the room. This problem is hard to fix due to the unstable nature of RSSI and Bluetooth. The next problem that you might have seen is that numbers would combine into something like 95000000950000001 when someone is typing their number and a LunchTrak test is right behind them. This is a software issue on their end, but it is still something I have to consider when developing a new solution.</p><h3 id="takeaways">Takeaways</h3><p>I was very disappointed but also surprisingly relieved that the pilot was over; all of my worries and stress just disappeared. I knew that I would need to update everyone who helped me with the project, so I tried thinking of ways to phrase how the pilot went. Here's the email I sent out.</p><hr><p>Hi All,</p><p>Just wanted to give you a quick update on my LunchTrak testing yesterday during summer school.</p><p>Due to a problem during manufacturing, many of the tags were damaged and only 26 of the 75 tags worked properly. I was at least able to hand the working ones out to my Living Skills class. Because there weren't that many tags, we ended up mixing the lines with both LunchTrak testers and students who typed their IDs. The problem is that when a student types their number into the software, there is a short delay before the software registers that number. If a student with LunchTrak is right behind, the two numbers might be combined, leading to something like 9500000195000002. We had to ask the students to retype their numbers. Another problem is that a couple of students were mistakenly picked up by my scanner upon entering the room, causing confusion when they tried to exit because their names would not show up again. I am still looking into why this problem occurred and how I can prevent it.</p><p>Though the pilot did not go exactly as I planned, there are some positive takeaways. The students who were scanned in correctly had no delay and enjoyed the convenience of not needing to enter their ID. At the very least, this experiment helped confirm the idea that skipping the keypads leads to time and convenience benefits. I just need to focus on ensuring the above issues do not happen.</p><p>Overall, I will be brainstorming and tinkering with potential fixes to solve the issues mentioned above. Thank you all for your help with my project. I will keep you updated on my progress.</p><p>Thanks,<br>Dylan</p><hr><p>So yeah, admit your faults early and then focus on the positives! (see my post on the book <a href="https://blog.dylanlu.com/how-to-win-friends-and-influence-people/?ref=localhost">How to Win Friends and Influence People</a>)</p><h2 id="conclusion-lessons-and-whats-next">Conclusion, Lessons, and What's Next</h2><p>I spent 6 months building a product that didn't work. But it wasn't wasted: the students who were successfully scanned in loved the product and its speed + convenience factor). My "<a href="https://blog.dylanlu.com/the-lean-startup/?ref=localhost">Lean Startup</a>" Spidey-sense tells me that I had just confirmed my value hypothesis, but I will need to pivot on the underlying technology. If I had read the book earlier, I would know that 6 months is a wayyy too long turnaround time to run an experiment like this. I should have at least tested it with my friends earlier on.</p><p>Seeing the results of this experiment could easily make me depressed if I don't try seeing it from the positive side. For a first product, being able to demo it to PAUSD administrators, get them to pay for it, actually go through the manufacturing process, and have everything on time for a pilot is actually very encouraging news. I have the ability to get my ideas and products out there, I just need to focus on getting it to work next time (this should come easier as I learn more and get better). The fact that I have my own LLC should make me happy enough. I can give it a new name (maybe LuWang LLC, or probably something else) and make LunchTrak a DBA. Then I can make all my small businesses a DBA to my parent LLC. Dude, I have a business bank account and credit card. Why should I be upset?</p><p>I'm not sure exactly what the future looks like for LunchTrak, but I do not intend on giving up right away. I will, however, take a small break from it to explore some other projects like my 3D Printed Guardian Sword, Gunn Alumni (complete pivot), and Gunn Elimination. I have a lot of cool things to work on this summer and I look forward to all of them. Okay, maybe not so much on my college essays.</p>
     </section>
 
 
@@ -218,6 +214,46 @@ Dylan
                         
 <article class="post-card post">
 
+    <a class="post-card-image-link" href="/atomic-habits/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2023/07/IMG_3466.jpg 300w,
+                    /content/images/size/w600/2023/07/IMG_3466.jpg 600w,
+                    /content/images/size/w1000/2023/07/IMG_3466.jpg 1000w,
+                    /content/images/size/w2000/2023/07/IMG_3466.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2023/07/IMG_3466.jpg"
+            alt="Atomic Habits"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/atomic-habits/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Atomic Habits
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Notes on James Clear's Atomic Habits. This post is part of a series where I review what I learned from each book I read.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2023-07-13">Jul 13, 2023</time>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
     <a class="post-card-image-link" href="/the-lean-startup/">
 
         <img class="post-card-image"
@@ -227,7 +263,7 @@ Dylan
                     /content/images/size/w2000/2023/06/IMG_3467.jpg 2000w"
             sizes="(max-width: 1000px) 400px, 800px"
             src="/content/images/size/w600/2023/06/IMG_3467.jpg"
-            alt="Dylan&#x27;s Book Notes - The Lean Startup"
+            alt="The Lean Startup"
             loading="lazy"
         />
 
@@ -241,7 +277,7 @@ Dylan
                 <div class="post-card-tags">
                 </div>
                 <h2 class="post-card-title">
-                    Dylan&#x27;s Book Notes - The Lean Startup
+                    The Lean Startup
                 </h2>
             </header>
                 <div class="post-card-excerpt">Notes on Eric Ries' The Lean Startup. This post is part of a series where I review what I learned from each book I read.</div>
@@ -295,46 +331,6 @@ Dylan
     </div>
 
 </article>
-                        
-<article class="post-card post">
-
-    <a class="post-card-image-link" href="/gunn-alumni-progress-check-summer-2023/">
-
-        <img class="post-card-image"
-            srcset="/content/images/size/w300/2023/06/Gunn_High_School_Apr_2020.jpg 300w,
-                    /content/images/size/w600/2023/06/Gunn_High_School_Apr_2020.jpg 600w,
-                    /content/images/size/w1000/2023/06/Gunn_High_School_Apr_2020.jpg 1000w,
-                    /content/images/size/w2000/2023/06/Gunn_High_School_Apr_2020.jpg 2000w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="/content/images/size/w600/2023/06/Gunn_High_School_Apr_2020.jpg"
-            alt="Gunn Alumni - Progress Check Summer 2023"
-            loading="lazy"
-        />
-
-
-    </a>
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="/gunn-alumni-progress-check-summer-2023/">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    Gunn Alumni - Progress Check Summer 2023
-                </h2>
-            </header>
-                <div class="post-card-excerpt">A quick progress check on our Gunn Alumni website, and some potential issues to look out for in the future.</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2023-06-08">Jun 8, 2023</time>
-                <span class="post-card-meta-length">4 min read</span>
-        </footer>
-
-    </div>
-
-</article>
                 </div>
             </aside>
 
@@ -360,7 +356,7 @@ Dylan
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="/assets/built/casper.js?v=8e951c6bb9"></script>
+<script src="/assets/built/casper.js?v=315c8f8898"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
