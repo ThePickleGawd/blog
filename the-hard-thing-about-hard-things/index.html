@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>The Hard Thing About Hard Things</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=b04e58d8db" />
+    <link rel="preload" as="script" href="/assets/built/casper.js?v=b04e58d8db" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=b04e58d8db" />
+
+    <meta name="description" content="Book notes on &quot;The Hard Thing About Hard Things&quot;">
+    <link rel="icon" href="https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png" type="image/png">
+    <link rel="canonical" href="https://blog.dylanlu.com/the-hard-thing-about-hard-things/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Dylan&#x27;s Dev Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Hard Thing About Hard Things">
+    <meta property="og:description" content="Book notes on &quot;The Hard Thing About Hard Things&quot;">
+    <meta property="og:url" content="https://blog.dylanlu.com/the-hard-thing-about-hard-things/">
+    <meta property="og:image" content="https://blog.dylanlu.com/content/images/2024/03/IMG_4720.jpg">
+    <meta property="article:published_time" content="2024-04-30T03:57:18.000Z">
+    <meta property="article:modified_time" content="2024-04-30T04:00:16.000Z">
+    <meta property="article:tag" content="Book Notes">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Hard Thing About Hard Things">
+    <meta name="twitter:description" content="Book notes on &quot;The Hard Thing About Hard Things&quot;">
+    <meta name="twitter:url" content="https://blog.dylanlu.com/the-hard-thing-about-hard-things/">
+    <meta name="twitter:image" content="https://blog.dylanlu.com/content/images/2024/03/IMG_4720.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Dylan Lu">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Book Notes">
+    <meta name="twitter:site" content="@ThePickleGawd">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="1500">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dylan&#x27;s Dev Blog",
+        "url": "https://blog.dylanlu.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Dylan Lu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/2023/03/IMG_4955-2.jpg",
+            "width": 2000,
+            "height": 2096
+        },
+        "url": "https://blog.dylanlu.com/author/dylan/",
+        "sameAs": [
+            "https://dylanlu.com"
+        ]
+    },
+    "headline": "The Hard Thing About Hard Things",
+    "url": "https://blog.dylanlu.com/the-hard-thing-about-hard-things/",
+    "datePublished": "2024-04-30T03:57:18.000Z",
+    "dateModified": "2024-04-30T04:00:16.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dylanlu.com/content/images/2024/03/IMG_4720.jpg",
+        "width": 2000,
+        "height": 1500
+    },
+    "keywords": "Book Notes",
+    "description": "Book notes on &quot;The Hard Thing About Hard Things&quot;",
+    "mainEntityOfPage": "https://blog.dylanlu.com/the-hard-thing-about-hard-things/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.69">
+    <link rel="alternate" type="application/rss+xml" title="Dylan&#x27;s Dev Blog" href="https://blog.dylanlu.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="95cadc1cc0652e4ace5a304046" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.dylanlu.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.dylanlu.com/webmentions/receive/" rel="webmention">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-vsc-dark-plus.min.css" integrity="sha512-ML8rkwYTFNcblPFx+VLgFIT2boa6f8DDP6p6go4+FT0/mJ8DCbCgi6S0UdjtzB3hKCr1zhU+YVB0AHhIloZP8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6">
+<script defer="" src="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6"></script>
+<link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.css?v=db70eba112">
+<script defer="" src="https://ghost.org/changelog/public/cards.min.css?v=db70eba112"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDGM6S5BE1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QDGM6S5BE1');
+</script><style>:root {--ghost-accent-color: #252526;}</style>
+
+</head>
+<body class="post-template tag-book-notes is-head-left-logo has-sans-body has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="https://blog.dylanlu.com">
+                        Dylan&#x27;s Dev Blog
+                </a>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-about"><a href="https://blog.dylanlu.com/about/">About</a></li>
+    <li class="nav-timeline"><a href="https://blog.dylanlu.com/timeline/">Timeline</a></li>
+    <li class="nav-raps"><a href="https://blog.dylanlu.com/raps/">Raps</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                        <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-book-notes ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="/tag/book-notes/">Book Notes</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">The Hard Thing About Hard Things</h1>
+
+            <p class="article-excerpt">Book notes on &quot;The Hard Thing About Hard Things&quot;</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="/author/dylan/" class="author-avatar">
+                        <img class="author-profile-image" src="/content/images/size/w100/2023/03/IMG_4955-2.jpg" alt="Dylan Lu" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="/author/dylan/">Dylan Lu</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2024-04-29">Apr 29, 2024</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="/content/images/size/w300/2024/03/IMG_4720.jpg 300w,
+                            /content/images/size/w600/2024/03/IMG_4720.jpg 600w,
+                            /content/images/size/w1000/2024/03/IMG_4720.jpg 1000w,
+                            /content/images/size/w2000/2024/03/IMG_4720.jpg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="/content/images/size/w2000/2024/03/IMG_4720.jpg"
+                    alt="The Hard Thing About Hard Things"
+                />
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>This is one of my favorite and most relatable books. Not only does he have similar feelings about his high school and company (as a football player and being stressed out all the time), but he also begins each chapter with a rap! This guy is so cool. I wrote about him and his book in my Stanford essays.</p><p>To be honest, I read this book 6 months ago and have book slacking off on my book summaries. Also, during my Stanford interview, Yinan asked me specific questions about the book (cuz I told him it inspired me), but I couldn't answer them lol. </p><p>Anyway, based on my notes and what I remember, this is what's important.</p><ul><li>Firing is hard emotionally, but if someone doesn't fit your culture or is not doing what is required/expected, fire them immediately</li><li>Firing should not be a surprise, but you should take care of them. Leave a good impression for future employees and create good working conditions</li><li>In layoffs, the CEO should clearly state that it's the company's fault.</li><li>CEO is a lonely job: no one else has all the information; you can't share the burden by taking the "accepted" answer from other employees because the company will die; no one is born a CEO and must experience failure to succeed later on</li><li>Take care of your people first, then your shareholders</li><li>When deciding equity, everyone should be just a little unsatisfied; that's how you know you've done it right</li><li>Be honest. People see through fake positivity, and it actually makes you look stupid. If you're in trouble, say so</li><li>Bad news spreads automatically, so there's no point in trying to cover it up. Surprises destroy employee's trust in leadership and hurts morale</li><li>Take care of HR, because taking care of employees is the only way to create a great company; more important than the product or profit themselves</li><li>Spend time investing in employee training. It may take a while at first, but in the long run, it's worth it (saving a little time multiplied by 365 days a year)</li><li>One-on-one meetings are very important, and they should not be forced. Managers should do 85% listening and less talking. If there's a problem, employees need a way to communicate that privately and safely</li><li>Nobody cares. It doesn't matter if you fail with a great reason; spend all your energy finding the one impossible solution (also in sports psychology speech by Mr. Creighton)</li></ul>
+    </section>
+
+
+</article>
+</main>
+
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/fall-in-love-with-the-problem-not-the-solution/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2024/03/IMG_3712.jpg 300w,
+                    /content/images/size/w600/2024/03/IMG_3712.jpg 600w,
+                    /content/images/size/w1000/2024/03/IMG_3712.jpg 1000w,
+                    /content/images/size/w2000/2024/03/IMG_3712.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2024/03/IMG_3712.jpg"
+            alt="Fall In Love With the Problem, Not the Solution"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/fall-in-love-with-the-problem-not-the-solution/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Fall In Love With the Problem, Not the Solution
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Book notes on "Fall in Love With the Problem, Not the Solution"</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2024-04-29">Apr 29, 2024</time>
+                <span class="post-card-meta-length">1 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/college-decisions/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2024/04/iStock-155441000.jpg 300w,
+                    /content/images/size/w600/2024/04/iStock-155441000.jpg 600w,
+                    /content/images/size/w1000/2024/04/iStock-155441000.jpg 1000w,
+                    /content/images/size/w2000/2024/04/iStock-155441000.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2024/04/iStock-155441000.jpg"
+            alt="College Decisions"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/college-decisions/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    College Decisions
+                </h2>
+            </header>
+                <div class="post-card-excerpt">College sucks... kinda.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2024-04-10">Apr 10, 2024</time>
+                <span class="post-card-meta-length">2 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/gunn-elimination-blog-3/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2024/02/IMG_9651.JPG 300w,
+                    /content/images/size/w600/2024/02/IMG_9651.JPG 600w,
+                    /content/images/size/w1000/2024/02/IMG_9651.JPG 1000w,
+                    /content/images/size/w2000/2024/02/IMG_9651.JPG 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2024/02/IMG_9651.JPG"
+            alt="Gunn Elimination Recap"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/gunn-elimination-blog-3/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Gunn Elimination Recap
+                </h2>
+            </header>
+                <div class="post-card-excerpt">The final entry of my Gunn Elimination blog series</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2024-02-28">Feb 28, 2024</time>
+                <span class="post-card-meta-length">7 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="https://blog.dylanlu.com">Dylan&#x27;s Dev Blog</a> &copy; 2024</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="/assets/built/casper.js?v=b04e58d8db"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
