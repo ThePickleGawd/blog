@@ -25,7 +25,7 @@
     <meta property="og:url" content="https://blog.dylanlu.com/rssi-calibration-for-better-ble-proximity/">
     <meta property="og:image" content="https://blog.dylanlu.com/content/images/2023/04/PA_Image-1.jpg">
     <meta property="article:published_time" content="2023-04-24T04:53:00.000Z">
-    <meta property="article:modified_time" content="2023-06-25T05:32:31.000Z">
+    <meta property="article:modified_time" content="2024-10-08T06:37:23.000Z">
     <meta property="article:tag" content="LunchTrak">
     
     <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982">
@@ -74,7 +74,7 @@
     "headline": "RSSI Calibration For Better BLE Proximity",
     "url": "https://blog.dylanlu.com/rssi-calibration-for-better-ble-proximity/",
     "datePublished": "2023-04-24T04:53:00.000Z",
-    "dateModified": "2023-06-25T05:32:31.000Z",
+    "dateModified": "2024-10-08T06:37:23.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://blog.dylanlu.com/content/images/2023/04/PA_Image-1.jpg",
@@ -196,13 +196,16 @@
     </header>
 
     <section class="gh-content gh-canvas">
-        <p>After meeting with Dave over lunch, we came up with the idea to "calibrate" the RSSI threshold for the check-in system before the student walks to the exit. The problem with how it is currently set up is that depending on the orientation of the beacon, the RSSI can significantly differ from other beacons, meaning that there is no "perfect" RSSI threshold to check students in. Here's how I imagine this new calibration system:</p><ul><li>The "calibration" scanners come either at the entrance or can be placed behind the real scanners (at least 1-2 meters).</li><li>They will record the maximum average RSSI for any student ID and will report this number to the main scanner. Any filtering techniques will be applicable</li><li>The main scanner will now look for the RSSI threshold set by the calibration scanner</li></ul><p>One problem I envision right away is that if someone is walking around the exit (who did not go to the line), the calibration scanner will detect a lower RSSI and allow the main scanner to scan them in. This behavior is a huge issue. I think the best solution to this problem is to have a bare minimum RSSI that the calibration and main sensor must meet, like -70dbm for example.</p><p>Randomly, here's my new packet design to handle the calibrator vs extender packet. The "-80" will be replaced with the actual RSSI, and the five digits are the student ID numbers without the "950".</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/04/image-13.png" class="kg-image" alt loading="lazy" width="394" height="117"><figcaption>Calibrator/Extender Packet</figcaption></figure><p>Update (4/23/23): It's been two months and I have procrastinated on writing this article for too long. The calibration kinda works, but it is actually not needed. The people will be very close to the scanner and will likely not block the RSSI too much. Here's one of my first attempts with the calibrator:</p><!--kg-card-begin: html--><div>
-  <div style="position:relative;padding-top:56.25%;">
-    <iframe src="https://drive.google.com/file/d/1Kiu3jTkQvZ4yAaFa-SP6ZI3VLeKq7ngX/preview" frameborder="0"
-            allowfullscreen 
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"/>
-  </div>
-</div><!--kg-card-end: html-->
+        <p>After meeting with Dave over lunch, we came up with the idea to "calibrate" the RSSI threshold for the check-in system before the student walks to the exit. The problem with how it is currently set up is that depending on the orientation of the beacon, the RSSI can significantly differ from other beacons, meaning that there is no "perfect" RSSI threshold to check students in. Here's how I imagine this new calibration system:</p><ul><li>The "calibration" scanners come either at the entrance or can be placed behind the real scanners (at least 1-2 meters).</li><li>They will record the maximum average RSSI for any student ID and will report this number to the main scanner. Any filtering techniques will be applicable</li><li>The main scanner will now look for the RSSI threshold set by the calibration scanner</li></ul><p>One problem I envision right away is that if someone is walking around the exit (who did not go to the line), the calibration scanner will detect a lower RSSI and allow the main scanner to scan them in. This behavior is a huge issue. I think the best solution to this problem is to have a bare minimum RSSI that the calibration and main sensor must meet, like -70dbm for example.</p><p>Randomly, here's my new packet design to handle the calibrator vs extender packet. The "-80" will be replaced with the actual RSSI, and the five digits are the student ID numbers without the "950".</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2023/04/image-13.png" class="kg-image" alt="" loading="lazy" width="394" height="117"><figcaption><span style="white-space: pre-wrap;">Calibrator/Extender Packet</span></figcaption></figure><p>Update (4/23/23): It's been two months and I have procrastinated on writing this article for too long. The calibration kinda works, but it is actually not needed. The people will be very close to the scanner and will likely not block the RSSI too much. Here's one of my first attempts with the calibrator:</p>
+<!--kg-card-begin: html-->
+<div style="position: relative; width: 100%; max-width: 720px; padding-top: 56.25%;">
+    <iframe src="https://drive.google.com/file/d/1Kiu3jTkQvZ4yAaFa-SP6ZI3VLeKq7ngX/preview" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            allow="autoplay" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!--kg-card-end: html-->
+
     </section>
 
 
