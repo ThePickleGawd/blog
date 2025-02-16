@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Building a MIPS Assembly Interpreter in Python</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=fa3d82215d" />
+    <link rel="preload" as="script" href="/assets/built/casper.js?v=fa3d82215d" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=fa3d82215d" />
+
+    <meta name="description" content="Building a MIPS interpreter from scratch with Python.">
+    <link rel="icon" href="https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png" type="image/png">
+    <link rel="canonical" href="https://blog.dylanlu.com/mips-interpreter/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Dylan&#x27;s Dev Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Building a MIPS Assembly Interpreter in Python">
+    <meta property="og:description" content="Building a MIPS interpreter from scratch with Python.">
+    <meta property="og:url" content="https://blog.dylanlu.com/mips-interpreter/">
+    <meta property="og:image" content="https://blog.dylanlu.com/content/images/2025/02/6354-1.jpg">
+    <meta property="article:published_time" content="2025-02-16T19:36:12.000Z">
+    <meta property="article:modified_time" content="2025-02-16T19:36:39.000Z">
+    <meta property="article:tag" content="Dev">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building a MIPS Assembly Interpreter in Python">
+    <meta name="twitter:description" content="Building a MIPS interpreter from scratch with Python.">
+    <meta name="twitter:url" content="https://blog.dylanlu.com/mips-interpreter/">
+    <meta name="twitter:image" content="https://blog.dylanlu.com/content/images/2025/02/6354-1.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Dylan Lu">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Dev">
+    <meta name="twitter:site" content="@ThePickleGawd">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="703">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dylan&#x27;s Dev Blog",
+        "url": "https://blog.dylanlu.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Dylan Lu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/2023/03/IMG_4955-2.jpg",
+            "width": 1200,
+            "height": 1258
+        },
+        "url": "https://blog.dylanlu.com/author/dylan/",
+        "sameAs": [
+            "https://dylanlu.com"
+        ]
+    },
+    "headline": "Building a MIPS Assembly Interpreter in Python",
+    "url": "https://blog.dylanlu.com/mips-interpreter/",
+    "datePublished": "2025-02-16T19:36:12.000Z",
+    "dateModified": "2025-02-16T19:36:39.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dylanlu.com/content/images/2025/02/6354-1.jpg",
+        "width": 1200,
+        "height": 703
+    },
+    "keywords": "Dev",
+    "description": "Building a MIPS interpreter from scratch with Python.",
+    "mainEntityOfPage": "https://blog.dylanlu.com/mips-interpreter/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.85">
+    <link rel="alternate" type="application/rss+xml" title="Dylan&#x27;s Dev Blog" href="https://blog.dylanlu.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="95cadc1cc0652e4ace5a304046" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.dylanlu.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.dylanlu.com/webmentions/receive/" rel="webmention">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-vsc-dark-plus.min.css" integrity="sha512-ML8rkwYTFNcblPFx+VLgFIT2boa6f8DDP6p6go4+FT0/mJ8DCbCgi6S0UdjtzB3hKCr1zhU+YVB0AHhIloZP8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6">
+<script defer="" src="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6"></script>
+<link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.css?v=db70eba112">
+<script defer="" src="https://ghost.org/changelog/public/cards.min.css?v=db70eba112"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDGM6S5BE1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QDGM6S5BE1');
+</script><style>:root {--ghost-accent-color: #252526;}</style>
+
+</head>
+<body class="post-template tag-dev is-head-left-logo has-sans-body has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="https://blog.dylanlu.com">
+                        Dylan&#x27;s Dev Blog
+                </a>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger" aria-label="Main Menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-about"><a href="https://blog.dylanlu.com/about/">About</a></li>
+    <li class="nav-timeline"><a href="https://blog.dylanlu.com/timeline/">Timeline</a></li>
+    <li class="nav-raps"><a href="https://blog.dylanlu.com/raps/">Raps</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-dev ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="/tag/dev/">Dev</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">Building a MIPS Assembly Interpreter in Python</h1>
+
+            <p class="article-excerpt">Building a MIPS interpreter from scratch with Python.</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="/author/dylan/" class="author-avatar" aria-label="Read more of Dylan Lu">
+                        <img class="author-profile-image" src="/content/images/size/w100/2023/03/IMG_4955-2.jpg" alt="Dylan Lu" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="/author/dylan/">Dylan Lu</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2025-02-16">Feb 16, 2025</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 4 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="/content/images/size/w300/2025/02/6354-1.jpg 300w,
+                            /content/images/size/w600/2025/02/6354-1.jpg 600w,
+                            /content/images/size/w1000/2025/02/6354-1.jpg 1000w,
+                            /content/images/size/w2000/2025/02/6354-1.jpg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="/content/images/size/w2000/2025/02/6354-1.jpg"
+                    alt="Building a MIPS Assembly Interpreter in Python"
+                />
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>In my CCS 1B class (equivalent to UCSB's CS 64), we are learning about Assembly using the MIPS instruction set. Most of the "labs" are just homework questions about implementing simple programs or doing bit shifting by hand. As a CCS student, we get to do something a little more fun—we're building an entire Assembly interpreter from scratch!</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/image.png" class="kg-image" alt="" loading="lazy" width="781" height="528" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/image.png 600w, https://blog.dylanlu.com/content/images/2025/02/image.png 781w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Example: minimum.asm</span></figcaption></figure><p>GitHub repo here:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ThePickleGawd/MIPS-python?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ThePickleGawd/MIPS-python: MIPS Assembly Interpreter in Python</div><div class="kg-bookmark-description">MIPS Assembly Interpreter in Python. Contribute to ThePickleGawd/MIPS-python development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ThePickleGawd</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/fb04f244dbdb93beb8662663c2be6a8b613573c761ef36bc11cb6dd8397e5c9f/ThePickleGawd/MIPS-python" alt=""></div></a></figure><h2 id="getting-started">Getting Started</h2><p>Prof. Balkind gave us the option to use any language we wanted. For me, that meant I'd either be writing this in C++ or Python. But obviously I chose Python since it's way easier.</p><p>We learned that CPUs follow a "fetch-decode-execute" cycle to process instructions. So I wanted to abstract all the functionality into a nice, clean loop.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/code.png" class="kg-image" alt="" loading="lazy" width="758" height="634" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/code.png 600w, https://blog.dylanlu.com/content/images/2025/02/code.png 758w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">main.py</span></figcaption></figure><p>Now, I just have to build out each component, and I'll be done!</p><h2 id="decode">Decode</h2><p>I started with decode since that was the most straightforward. Basically, the goal was to take an instruction represented in hex (for example: <code>0x014B4820</code>), and parse it into something easier for me to work with. I decided to build my own Python type based on the MIPS reference card.</p>
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/code-1.png" class="kg-image" alt="" loading="lazy" width="1002" height="672" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/code-1.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/code-1.png 1000w, https://blog.dylanlu.com/content/images/2025/02/code-1.png 1002w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Depending on instr_type, some fields may not have a value</span></figcaption></figure><p>After some bit shifting and masking, I was able to construct the dictionary and return it.</p><h2 id="execute">Execute</h2><p>Now that we can easily understand each instruction, we need to tell our interpreter what to do when they see it. I started with a map from the opcode/funct parameter to the corresponding function definition. I made a dict for R, I, and J types.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/code-2.png" class="kg-image" alt="" loading="lazy" width="1356" height="786" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/code-2.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/code-2.png 1000w, https://blog.dylanlu.com/content/images/2025/02/code-2.png 1356w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">functions.py</span></figcaption></figure><p>Then, I grinded out each function. For example, here's a very simple implementation of <code>addi</code>.</p>
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/code-5.png" class="kg-image" alt="" loading="lazy" width="1636" height="444" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/code-5.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/code-5.png 1000w, https://blog.dylanlu.com/content/images/size/w1600/2025/02/code-5.png 1600w, https://blog.dylanlu.com/content/images/2025/02/code-5.png 1636w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">functions.py</span></figcaption></figure><p>The most annoying part was implementing <code>beq</code> and <code>bne</code>. Everything I fetch an instruction, I automatically increment the Program Counter, but MIPS reference card assumes that you don't increment it when you call <code>beq/bne</code>. I spent like 3 hours debugging this until I finally realized this. Ugh.</p>
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/code-3.png" class="kg-image" alt="" loading="lazy" width="1464" height="710" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/code-3.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/code-3.png 1000w, https://blog.dylanlu.com/content/images/2025/02/code-3.png 1464w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">functions.py</span></figcaption></figure><p>Writing <code>syscall</code> was also a little annoying because for some reason the data was in little endian format so I had read the hex bytes backwards, but then increment the memory address forward after reading each word.</p>
+<h2 id="fetch">Fetch</h2><p>This part was pretty fun too. After running <code>spim -assemble [file].asm</code>, it gives you a binary with all the instructions and data in nice hex format. It looks somethign like this.</p>
+<pre><code class="language-asm">.text # 0x400024 .. 0x400044
+.word 0x34080005, 0x34090007, 0x1285020, 0x34020001, 0x82021, 0xc, 0x3402000a, 0xc
+.data # 0x10000000 .. 0x10010000
+.word 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+</code></pre>
+<p>Using Python magic, I parsed it and loaded all the instructions and data into an array. Whenever I want to access the data/instruction from it's actual memory address, I just subtract the start offset (first hex value after #) and divide by 4 to get the index in my array. For example:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/code-6.png" class="kg-image" alt="" loading="lazy" width="1066" height="368" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/code-6.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/code-6.png 1000w, https://blog.dylanlu.com/content/images/2025/02/code-6.png 1066w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">cpu.py</span></figcaption></figure><p>To fetch the next instruction, all we need to do it get the value in the array at <code>pc_idx()</code> and then increment <code>PC += 4</code>.</p>
+<h2 id="conclusion">Conclusion</h2><p>That's it! It was pretty fun building this interpreter. I think this was actually pretty similar to the Chip8 emulator tutorial that I never completed a few years ago. Anyways, lot's of cooler projects coming up, like a VR Duolingo game but it's a zombie outbreak and you have to talk in Chinese to survive.</p>
+    </section>
+
+
+</article>
+</main>
+
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/sbhacks-2025/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2025/01/image-3.jpg 300w,
+                    /content/images/size/w600/2025/01/image-3.jpg 600w,
+                    /content/images/size/w1000/2025/01/image-3.jpg 1000w,
+                    /content/images/size/w2000/2025/01/image-3.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2025/01/image-3.jpg"
+            alt="SBHacks 2025: 1st Place Entertainment"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/sbhacks-2025/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    SBHacks 2025: 1st Place Entertainment
+                </h2>
+            </header>
+                <div class="post-card-excerpt">During SBHacks 2025 we won best entertainment app with Baddy Buddy: Advanced Analytics for Badminton.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2025-01-16">Jan 16, 2025</time>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/christmas-break-24-25/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2025/01/1.jpg 300w,
+                    /content/images/size/w600/2025/01/1.jpg 600w,
+                    /content/images/size/w1000/2025/01/1.jpg 1000w,
+                    /content/images/size/w2000/2025/01/1.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2025/01/1.jpg"
+            alt="Christmas Break 24-25"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/christmas-break-24-25/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Christmas Break 24-25
+                </h2>
+            </header>
+                <div class="post-card-excerpt">It&#39;s really nice not having school.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2025-01-07">Jan 7, 2025</time>
+                <span class="post-card-meta-length">4 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/midquarter-slump/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2024/11/GettyImages-634465727.jpg 300w,
+                    /content/images/size/w600/2024/11/GettyImages-634465727.jpg 600w,
+                    /content/images/size/w1000/2024/11/GettyImages-634465727.jpg 1000w,
+                    /content/images/size/w2000/2024/11/GettyImages-634465727.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2024/11/GettyImages-634465727.jpg"
+            alt="Midquarter Slump"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/midquarter-slump/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Midquarter Slump
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Really bored recently</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2024-11-04">Nov 4, 2024</time>
+                <span class="post-card-meta-length">2 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="https://blog.dylanlu.com">Dylan&#x27;s Dev Blog</a> &copy; 2025</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="/assets/built/casper.js?v=fa3d82215d"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
