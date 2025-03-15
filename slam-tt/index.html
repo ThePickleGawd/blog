@@ -8,10 +8,10 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <link rel="preload" as="style" href="/assets/built/screen.css?v=fa3d82215d" />
-    <link rel="preload" as="script" href="/assets/built/casper.js?v=fa3d82215d" />
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=994fd11a3c" />
+    <link rel="preload" as="script" href="/assets/built/casper.js?v=994fd11a3c" />
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=fa3d82215d" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=994fd11a3c" />
 
     <meta name="description" content="CCS 1L Fall Project. View real ping pong games in 3D.">
     <link rel="icon" href="https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png" type="image/png">
@@ -25,7 +25,7 @@
     <meta property="og:url" content="https://blog.dylanlu.com/slam-tt/">
     <meta property="og:image" content="https://blog.dylanlu.com/content/images/2025/02/Screenshot-2025-02-24-231512.png">
     <meta property="article:published_time" content="2025-02-25T07:22:40.000Z">
-    <meta property="article:modified_time" content="2025-02-28T04:26:14.000Z">
+    <meta property="article:modified_time" content="2025-03-15T02:51:48.000Z">
     <meta property="article:tag" content="Dev">
     
     <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982">
@@ -74,7 +74,7 @@
     "headline": "SLAM-TT: Visualize Ping Pong in 3D!",
     "url": "https://blog.dylanlu.com/slam-tt/",
     "datePublished": "2025-02-25T07:22:40.000Z",
-    "dateModified": "2025-02-28T04:26:14.000Z",
+    "dateModified": "2025-03-15T02:51:48.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://blog.dylanlu.com/content/images/2025/02/Screenshot-2025-02-24-231512.png",
@@ -197,7 +197,7 @@
     </header>
 
     <section class="gh-content gh-canvas">
-        <p>I finished this project last quarter and I lowkey forgot to write a post. Here's the repo:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ccs-cs1l-f24/SLAM-TT?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ccs-cs1l-f24/SLAM-TT: Transform monocular footage of table tennis into 3D scene. Based on TTNet and WHAM</div><div class="kg-bookmark-description">Transform monocular footage of table tennis into 3D scene. Based on TTNet and WHAM - ccs-cs1l-f24/SLAM-TT</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ccs-cs1l-f24</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/f67954c59447341795404fdab0ea5825c98ed276995c1feb07d2df35fb0146dc/ccs-cs1l-f24/SLAM-TT" alt=""></div></a></figure><figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://www.youtube.com/embed/F_HpfIQpiJo?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" title="SLAM-TT: 3D Reconstruction of Table Tennis"></iframe></figure><p>Looking back, the video is cringey and too long. Too bad we're not making one for this quarter; I had some fire ideas for my VR Chinese game.</p><h2 id="how-i-built-it">How I Built It</h2><p>Since I have a lot of stuff written in the README of my GitHub repo, I'll do a very high level overview.</p><h3 id="ttnet">TTNet</h3><p>This project provides me with data and PyTorch code to train a vision model to detect the ball position at each frame. I also get data such as table boundaries and whether it thinks the ball is currently touching the table.</p><p>I this model to detect all ball bounces, then use homography to map the frame coordinates into real world coordinates (relative to the table). We can use this data to reconstruct the ball position at every frame.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/image-1.png" class="kg-image" alt="" loading="lazy" width="1984" height="1212" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/image-1.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/image-1.png 1000w, https://blog.dylanlu.com/content/images/size/w1600/2025/02/image-1.png 1600w, https://blog.dylanlu.com/content/images/2025/02/image-1.png 1984w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Ball detection + Homography</span></figcaption></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://arxiv.org/abs/2004.09927?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">TTNet: Real-time temporal and spatial video analysis of table tennis</div><div class="kg-bookmark-description">We present a neural network TTNet aimed at real-time processing of high-resolution table tennis videos, providing both temporal (events spotting) and spatial (ball detection and semantic segmentation) data. This approach gives core information for reasoning score updates by an auto-referee system. We also publish a multi-task dataset OpenTTGames with videos of table tennis games in 120 fps labeled with events, semantic segmentation masks, and ball coordinates for evaluation of multi-task approaches, primarily oriented on spotting of quick events and small objects tracking. TTNet demonstrated 97.0% accuracy in game events spotting along with 2 pixels RMSE in ball detection with 97.5% accuracy on the test part of the presented dataset. The proposed network allows the processing of downscaled full HD videos with inference time below 6 ms per input tensor on a machine with a single consumer-grade GPU. Thus, we are contributing to the development of real-time multi-task deep learning applications and presenting approach, which is potentially capable of substituting manual data collection by sports scouts, providing support for referees’ decision-making, and gathering extra information about the game process.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" alt=""><span class="kg-bookmark-author">arXiv.org</span><span class="kg-bookmark-publisher">Roman Voeikov</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" alt=""></div></a></figure><h3 id="wham">WHAM</h3><p>This project takes videos of humans and finds their pose and world position. I use this to accurately get the player's movements and strokes.</p><p>Luckily, we can export the result into Blender, which I then load the animation and export it into Unity for final processing.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/image-3.png" class="kg-image" alt="" loading="lazy" width="1233" height="686" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/image-3.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/image-3.png 1000w, https://blog.dylanlu.com/content/images/2025/02/image-3.png 1233w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Video to 3D Model</span></figcaption></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://wham.is.tue.mpg.de/?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">WHAM</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://mpg.de/favicon.ico" alt=""><span class="kg-bookmark-author">WHAM</span><span class="kg-bookmark-publisher">Jonathan Williams</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://wham.is.tue.mpg.de/media/upload/pdf_rev.png" alt=""></div></a></figure><h3 id="unity">Unity</h3><p>Loads bounce data and player animations for the final result!</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/demo_transformed.gif" class="kg-image" alt="" loading="lazy" width="426" height="240"><figcaption><span style="white-space: pre-wrap;">Final Result</span></figcaption></figure><h2 id="conclusion">Conclusion</h2><p>If I feel like it, I'll update this post with more visuals. I put a lot more effort into the project than it seems at first glance. Checkout the video I made for a more in-depth showcase.</p><figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://www.youtube.com/embed/F_HpfIQpiJo?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" title="SLAM-TT: 3D Reconstruction of Table Tennis"></iframe></figure>
+        <p>I finished this project last quarter and I lowkey forgot to write a post. Here's the repo:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ccs-cs1l-f24/SLAM-TT?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ccs-cs1l-f24/SLAM-TT: Transform monocular footage of table tennis into 3D scene. Based on TTNet and WHAM</div><div class="kg-bookmark-description">Transform monocular footage of table tennis into 3D scene. Based on TTNet and WHAM - ccs-cs1l-f24/SLAM-TT</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ccs-cs1l-f24</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/f67954c59447341795404fdab0ea5825c98ed276995c1feb07d2df35fb0146dc/ccs-cs1l-f24/SLAM-TT" alt=""></div></a></figure><figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://www.youtube.com/embed/F_HpfIQpiJo?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" title="SLAM-TT: 3D Reconstruction of Table Tennis"></iframe></figure><p>Looking back, the video is cringey and too long. Too bad we're not making one for this quarter; I had some fire ideas for my VR Chinese game.</p><h2 id="how-i-built-it">How I Built It</h2><p>Since I have a lot of stuff written in the README of my GitHub repo, I'll do a very high level overview.</p><h3 id="ttnet">TTNet</h3><p>This project provides me with data and PyTorch code to train a vision model to detect the ball position at each frame. I also get the table boundaries and whether it thinks the ball is currently touching the table.</p><p>I first detect all ball bounces, then use homography to map the frame coordinates into real world coordinates (relative to the table). We can use this data to reconstruct the ball position at every frame.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/image-1.png" class="kg-image" alt="" loading="lazy" width="1984" height="1212" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/image-1.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/image-1.png 1000w, https://blog.dylanlu.com/content/images/size/w1600/2025/02/image-1.png 1600w, https://blog.dylanlu.com/content/images/2025/02/image-1.png 1984w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Every bounce on table</span></figcaption></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://arxiv.org/abs/2004.09927?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">TTNet: Real-time temporal and spatial video analysis of table tennis</div><div class="kg-bookmark-description">We present a neural network TTNet aimed at real-time processing of high-resolution table tennis videos, providing both temporal (events spotting) and spatial (ball detection and semantic segmentation) data. This approach gives core information for reasoning score updates by an auto-referee system. We also publish a multi-task dataset OpenTTGames with videos of table tennis games in 120 fps labeled with events, semantic segmentation masks, and ball coordinates for evaluation of multi-task approaches, primarily oriented on spotting of quick events and small objects tracking. TTNet demonstrated 97.0% accuracy in game events spotting along with 2 pixels RMSE in ball detection with 97.5% accuracy on the test part of the presented dataset. The proposed network allows the processing of downscaled full HD videos with inference time below 6 ms per input tensor on a machine with a single consumer-grade GPU. Thus, we are contributing to the development of real-time multi-task deep learning applications and presenting approach, which is potentially capable of substituting manual data collection by sports scouts, providing support for referees’ decision-making, and gathering extra information about the game process.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" alt=""><span class="kg-bookmark-author">arXiv.org</span><span class="kg-bookmark-publisher">Roman Voeikov</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" alt=""></div></a></figure><h3 id="wham">WHAM</h3><p>This project takes videos of humans and finds their pose and world position. I use this to accurately get the player's movements and strokes.</p><p>Luckily, we can export the result into Blender, which I then load the animation and export it into Unity for final processing.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/image-3.png" class="kg-image" alt="" loading="lazy" width="1233" height="686" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/02/image-3.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/02/image-3.png 1000w, https://blog.dylanlu.com/content/images/2025/02/image-3.png 1233w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Video to 3D Model</span></figcaption></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://wham.is.tue.mpg.de/?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">WHAM</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://mpg.de/favicon.ico" alt=""><span class="kg-bookmark-author">WHAM</span><span class="kg-bookmark-publisher">Jonathan Williams</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://wham.is.tue.mpg.de/media/upload/pdf_rev.png" alt=""></div></a></figure><h3 id="unity">Unity</h3><p>Loads bounce data and player animations for the final result! I kind of cheat by lerping bounces instead of actually "simulating" them with physics or whatever. For this application, I think it's fine, but it could be worth exploring in the future.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/02/demo_transformed.gif" class="kg-image" alt="" loading="lazy" width="426" height="240"><figcaption><span style="white-space: pre-wrap;">Final Result</span></figcaption></figure><h2 id="conclusion">Conclusion</h2><p>If I feel like it, I'll update this post with more visuals. I put a lot more effort into the project than it seems at first glance. Checkout the video if you didn't see it above.</p><figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://www.youtube.com/embed/F_HpfIQpiJo?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" title="SLAM-TT: 3D Reconstruction of Table Tennis"></iframe></figure>
     </section>
 
 
@@ -209,6 +209,46 @@
 
             <aside class="read-more-wrap outer">
                 <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/run-from-duo/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2025/03/thumbnail.png 300w,
+                    /content/images/size/w600/2025/03/thumbnail.png 600w,
+                    /content/images/size/w1000/2025/03/thumbnail.png 1000w,
+                    /content/images/size/w2000/2025/03/thumbnail.png 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2025/03/thumbnail.png"
+            alt="VR Chinese Learning with Speaking and Zombies"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/run-from-duo/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    VR Chinese Learning with Speaking and Zombies
+                </h2>
+            </header>
+                <div class="post-card-excerpt">My CCS 1L Winter 2025 Project. A VR game to learn Chinese, except it&#39;s in a zombie survival game. Convince Duolingo to give you weapons by speaking in Chinese.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2025-03-14">Mar 14, 2025</time>
+                <span class="post-card-meta-length">4 min read</span>
+        </footer>
+
+    </div>
+
+</article>
                         
 <article class="post-card post">
 
@@ -289,46 +329,6 @@
     </div>
 
 </article>
-                        
-<article class="post-card post">
-
-    <a class="post-card-image-link" href="/christmas-break-24-25/">
-
-        <img class="post-card-image"
-            srcset="/content/images/size/w300/2025/01/1.jpg 300w,
-                    /content/images/size/w600/2025/01/1.jpg 600w,
-                    /content/images/size/w1000/2025/01/1.jpg 1000w,
-                    /content/images/size/w2000/2025/01/1.jpg 2000w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="/content/images/size/w600/2025/01/1.jpg"
-            alt="Christmas Break 24-25"
-            loading="lazy"
-        />
-
-
-    </a>
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="/christmas-break-24-25/">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    Christmas Break 24-25
-                </h2>
-            </header>
-                <div class="post-card-excerpt">It&#39;s really nice not having school.</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2025-01-07">Jan 7, 2025</time>
-                <span class="post-card-meta-length">4 min read</span>
-        </footer>
-
-    </div>
-
-</article>
                 </div>
             </aside>
 
@@ -394,7 +394,7 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="/assets/built/casper.js?v=fa3d82215d"></script>
+<script src="/assets/built/casper.js?v=994fd11a3c"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger

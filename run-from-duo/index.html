@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>VR Chinese Learning with Speaking and Zombies</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=994fd11a3c" />
+    <link rel="preload" as="script" href="/assets/built/casper.js?v=994fd11a3c" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=994fd11a3c" />
+
+    <meta name="description" content="My CCS 1L Winter 2025 Project. A VR game to learn Chinese, except it&#x27;s in a zombie survival game. Convince Duolingo to give you weapons by speaking in Chinese.">
+    <link rel="icon" href="https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png" type="image/png">
+    <link rel="canonical" href="https://blog.dylanlu.com/run-from-duo/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Dylan&#x27;s Dev Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="VR Chinese Learning with Speaking and Zombies">
+    <meta property="og:description" content="My CCS 1L Winter 2025 Project. A VR game to learn Chinese, except it&#x27;s in a zombie survival game. Convince Duolingo to give you weapons by speaking in Chinese.">
+    <meta property="og:url" content="https://blog.dylanlu.com/run-from-duo/">
+    <meta property="og:image" content="https://blog.dylanlu.com/content/images/2025/03/thumbnail.png">
+    <meta property="article:published_time" content="2025-03-15T03:42:01.000Z">
+    <meta property="article:modified_time" content="2025-03-15T03:42:01.000Z">
+    <meta property="article:tag" content="Dev">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/dylan.lu.982">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VR Chinese Learning with Speaking and Zombies">
+    <meta name="twitter:description" content="My CCS 1L Winter 2025 Project. A VR game to learn Chinese, except it&#x27;s in a zombie survival game. Convince Duolingo to give you weapons by speaking in Chinese.">
+    <meta name="twitter:url" content="https://blog.dylanlu.com/run-from-duo/">
+    <meta name="twitter:image" content="https://blog.dylanlu.com/content/images/2025/03/thumbnail.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Dylan Lu">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Dev">
+    <meta name="twitter:site" content="@ThePickleGawd">
+    <meta property="og:image:width" content="1175">
+    <meta property="og:image:height" content="704">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dylan&#x27;s Dev Blog",
+        "url": "https://blog.dylanlu.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/size/w256h256/2023/03/icon_ball.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Dylan Lu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.dylanlu.com/content/images/2023/03/IMG_4955-2.jpg",
+            "width": 1200,
+            "height": 1258
+        },
+        "url": "https://blog.dylanlu.com/author/dylan/",
+        "sameAs": [
+            "https://dylanlu.com"
+        ]
+    },
+    "headline": "VR Chinese Learning with Speaking and Zombies",
+    "url": "https://blog.dylanlu.com/run-from-duo/",
+    "datePublished": "2025-03-15T03:42:01.000Z",
+    "dateModified": "2025-03-15T03:42:01.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dylanlu.com/content/images/2025/03/thumbnail.png",
+        "width": 1175,
+        "height": 704
+    },
+    "keywords": "Dev",
+    "description": "My CCS 1L Winter 2025 Project. A VR game to learn Chinese, except it&#x27;s in a zombie survival game. Convince Duolingo to give you weapons by speaking in Chinese.",
+    "mainEntityOfPage": "https://blog.dylanlu.com/run-from-duo/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.85">
+    <link rel="alternate" type="application/rss+xml" title="Dylan&#x27;s Dev Blog" href="https://blog.dylanlu.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="95cadc1cc0652e4ace5a304046" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.dylanlu.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.dylanlu.com/webmentions/receive/" rel="webmention">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-vsc-dark-plus.min.css" integrity="sha512-ML8rkwYTFNcblPFx+VLgFIT2boa6f8DDP6p6go4+FT0/mJ8DCbCgi6S0UdjtzB3hKCr1zhU+YVB0AHhIloZP8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6">
+<script defer="" src="https://ghost.org/changelog/public/cards.min.js?v=d2955bb5c6"></script>
+<link rel="stylesheet" type="text/css" href="https://ghost.org/changelog/public/cards.min.css?v=db70eba112">
+<script defer="" src="https://ghost.org/changelog/public/cards.min.css?v=db70eba112"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDGM6S5BE1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QDGM6S5BE1');
+</script><style>:root {--ghost-accent-color: #252526;}</style>
+
+</head>
+<body class="post-template tag-dev is-head-left-logo has-sans-body has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="https://blog.dylanlu.com">
+                        Dylan&#x27;s Dev Blog
+                </a>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger" aria-label="Main Menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-about"><a href="https://blog.dylanlu.com/about/">About</a></li>
+    <li class="nav-timeline"><a href="https://blog.dylanlu.com/timeline/">Timeline</a></li>
+    <li class="nav-raps"><a href="https://blog.dylanlu.com/raps/">Raps</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-dev ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="/tag/dev/">Dev</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">VR Chinese Learning with Speaking and Zombies</h1>
+
+            <p class="article-excerpt">My CCS 1L Winter 2025 Project. A VR game to learn Chinese, except it&#x27;s in a zombie survival game. Convince Duolingo to give you weapons by speaking in Chinese.</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="/author/dylan/" class="author-avatar" aria-label="Read more of Dylan Lu">
+                        <img class="author-profile-image" src="/content/images/size/w100/2023/03/IMG_4955-2.jpg" alt="Dylan Lu" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="/author/dylan/">Dylan Lu</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2025-03-14">Mar 14, 2025</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 4 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="/content/images/size/w300/2025/03/thumbnail.png 300w,
+                            /content/images/size/w600/2025/03/thumbnail.png 600w,
+                            /content/images/size/w1000/2025/03/thumbnail.png 1000w,
+                            /content/images/size/w2000/2025/03/thumbnail.png 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="/content/images/size/w2000/2025/03/thumbnail.png"
+                    alt="VR Chinese Learning with Speaking and Zombies"
+                />
+                    <figcaption><span style="white-space: pre-wrap;">Duolingo but in a VR Zombie Apocalypse</span></figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>This is a project I've been thinking about for a while, but probably not possible until recently. I wanted to make a fully immersive Chinese learning game so that I could finally catch up on the 8 years since I've dropped out of Chinese school. It's a decision I still kinda regret today (really, my Chinese speaking is utterly embarrassing).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/03/image.png" class="kg-image" alt="" loading="lazy" width="714" height="425" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/03/image.png 600w, https://blog.dylanlu.com/content/images/2025/03/image.png 714w"><figcaption><span style="white-space: pre-wrap;">Can you believe this was 4 years ago!</span></figcaption></figure><p>But with ChatGPT Realtime Conversations, this is totally possible! And, it'll be a totally novel game since the technology is so recent.</p><h2 id="the-game">The Game</h2><p>To be honest, I don't have the manpower to make it an open world game with all the features that I wanted (like bargaining in Chinese or asking for directions to the nearest shop). For my project proof-of-concept, I instead opted to give rewards to players when they correctly spoke good Chinese. For example, in a Zombie game, rewards could be ammo or new weapons.</p><p>You can see the demo below. At the beginning, when I asked for ammo, it actually clipped through the ground as it spawned in... so that's a little awkward.</p><figure class="kg-card kg-embed-card"><iframe width="200" height="150" src="https://www.youtube.com/embed/EEfnGCmj86o?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" title="Run From Duo VR - Demo"></iframe></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ThePickleGawd/run-from-duo?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ThePickleGawd/run-from-duo: Duolingo but it’s VR and he’s trying to kidnap you.</div><div class="kg-bookmark-description">Duolingo but it’s VR and he’s trying to kidnap you. - ThePickleGawd/run-from-duo</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ThePickleGawd</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/8ea0d82c05bff3a0882d99b556c4c8f6c148fda256b263acb00a8d9631febdee/ThePickleGawd/run-from-duo" alt=""></div></a></figure><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/03/demo-smaller.gif" class="kg-image" alt="" loading="lazy" width="400" height="400"><figcaption><span style="white-space: pre-wrap;">Gameplay</span></figcaption></figure><h2 id="building-the-game">Building the Game</h2><p>I spent a long time watching Youtube tutorials on Unity XR since that was all new to me. But if you've known me for a while and saw the other <a href="https://study.dylanlu.com/?ref=localhost" rel="noreferrer">study game</a> that I made back in 2021, you might recognize some of the assets. Actually, the zombies and city are literally the same.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/03/image-1.png" class="kg-image" alt="" loading="lazy" width="2000" height="1030" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/03/image-1.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/03/image-1.png 1000w, https://blog.dylanlu.com/content/images/size/w1600/2025/03/image-1.png 1600w, https://blog.dylanlu.com/content/images/2025/03/image-1.png 2000w" sizes="(min-width: 720px) 720px"><figcaption><a href="https://study.dylanlu.com/?ref=localhost" rel="noreferrer"><span style="white-space: pre-wrap;">https://study.dylanlu.com</span></a></figcaption></figure><p>You may be skeptical, but hey, I aced my English vocab quiz after playing this game for a few hours. And there were like 40 words on that test.</p><p>But anyways, after some slight modifications (and the Duolingo bird of course, though for a while we thought he was dead), We have a pretty basic scene.</p><figure class="kg-card kg-image-card"><img src="https://blog.dylanlu.com/content/images/2025/03/image-2.png" class="kg-image" alt="" loading="lazy" width="1475" height="622" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/03/image-2.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/03/image-2.png 1000w, https://blog.dylanlu.com/content/images/2025/03/image-2.png 1475w" sizes="(min-width: 720px) 720px"></figure><p>The gun and player scripts are pretty standard so I'm not going to dive deep into them. I basically just ripped the same Gun, Health, Player script from all my other games and it worked just fine. The new feature was adding realtime speaking with ChatGPT.</p><h3 id="talking-to-chatgpt">Talking to ChatGPT</h3><p>To give a high level overview of how this works, let's look at this amazing diagram I made for my presentation.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/03/image-3.png" class="kg-image" alt="" loading="lazy" width="1818" height="847" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/03/image-3.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/03/image-3.png 1000w, https://blog.dylanlu.com/content/images/size/w1600/2025/03/image-3.png 1600w, https://blog.dylanlu.com/content/images/2025/03/image-3.png 1818w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Flow of Data</span></figcaption></figure><p>Basically, I have an intermediary Node.js server to handle communication from the VR game client and OpenAI servers (cuz writing C# code for their API sounds like a pain in the ass). It will start a WebSocket server and simultaneously connects to OpenAI via WebSockets. </p><ol><li>When user speaks, pipe the the audio to the server</li><li>Server collects audio buffer and streams it to OpenAI, following their realtime API protocol.</li><li>Server waits for OpenAI response. Then pipes audio back to VR client</li><li>VR Client plays any audio it receives.</li></ol><p>Here's an example:</p><div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide"><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.dylanlu.com/content/media/2025/03/mic_input_turn_4.wav" preload="metadata"></audio><div class="kg-audio-title">Mic input turn 4</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">1.74</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0"><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100"></div></div></div><div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide"><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.dylanlu.com/content/media/2025/03/ai_output_turn_4.wav" preload="metadata"></audio><div class="kg-audio-title">Ai output turn 4</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">6.6</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0"><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100"></div></div></div><h3 id="giving-player-the-rewards">Giving Player the Rewards</h3><p>To actually reward the player in the game, we need some way for ChatGPT to communicate that it thinks the player deserves a reward. To do this, I relied on OpenAI Function Calling protocol. Basically, I define a function schema that accepts a "reward" parameter and I give it a description so ChatGPT knows when to call it.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/03/image-4.png" class="kg-image" alt="" loading="lazy" width="812" height="399" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/03/image-4.png 600w, https://blog.dylanlu.com/content/images/2025/03/image-4.png 812w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Function schema for reward_player</span></figcaption></figure><p>On the Node.js server, I check if I receive a "function_call" from ChatGPT, and if so, I send it to my Unity client as a JSON message. I have similar code in C# to check whether the received WebSocket data is JSON or not.</p><figure class="kg-card kg-image-card"><img src="https://blog.dylanlu.com/content/images/2025/03/image-6.png" class="kg-image" alt="" loading="lazy" width="572" height="228"></figure><h2 id="conclusion">Conclusion</h2><p>And that's it! If I have more time, I really want to turn this into a stealth game, where you have to blend in with enemies by speaking flawless Chinese (otherwise they'll discover you and shoot you). That'll make the conversation aspect much more immersive and intense. It can also be personalized for based on what the player actually cares about learning, like speaking about business, for example. There is so much customizability since we're using AI NPCs.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.dylanlu.com/content/images/2025/03/image-7.png" class="kg-image" alt="" loading="lazy" width="1808" height="945" srcset="https://blog.dylanlu.com/content/images/size/w600/2025/03/image-7.png 600w, https://blog.dylanlu.com/content/images/size/w1000/2025/03/image-7.png 1000w, https://blog.dylanlu.com/content/images/size/w1600/2025/03/image-7.png 1600w, https://blog.dylanlu.com/content/images/2025/03/image-7.png 1808w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">The end of my presentation</span></figcaption></figure><p>Anyways, hope you enjoyed. You can try playing it if you have a Meta Quest (check GitHub link for <code>.apk</code> file).</p>
+
+    </section>
+
+
+</article>
+</main>
+
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/slam-tt/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2025/02/Screenshot-2025-02-24-231512.png 300w,
+                    /content/images/size/w600/2025/02/Screenshot-2025-02-24-231512.png 600w,
+                    /content/images/size/w1000/2025/02/Screenshot-2025-02-24-231512.png 1000w,
+                    /content/images/size/w2000/2025/02/Screenshot-2025-02-24-231512.png 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2025/02/Screenshot-2025-02-24-231512.png"
+            alt="SLAM-TT: Visualize Ping Pong in 3D!"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/slam-tt/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    SLAM-TT: Visualize Ping Pong in 3D!
+                </h2>
+            </header>
+                <div class="post-card-excerpt">CCS 1L Fall Project. View real ping pong games in 3D.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2025-02-24">Feb 24, 2025</time>
+                <span class="post-card-meta-length">3 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/mips-interpreter/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2025/02/6354-1.jpg 300w,
+                    /content/images/size/w600/2025/02/6354-1.jpg 600w,
+                    /content/images/size/w1000/2025/02/6354-1.jpg 1000w,
+                    /content/images/size/w2000/2025/02/6354-1.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2025/02/6354-1.jpg"
+            alt="Building a MIPS Assembly Interpreter in Python"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/mips-interpreter/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Building a MIPS Assembly Interpreter in Python
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Building a MIPS interpreter from scratch with Python.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2025-02-16">Feb 16, 2025</time>
+                <span class="post-card-meta-length">4 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/sbhacks-2025/">
+
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2025/01/image-3.jpg 300w,
+                    /content/images/size/w600/2025/01/image-3.jpg 600w,
+                    /content/images/size/w1000/2025/01/image-3.jpg 1000w,
+                    /content/images/size/w2000/2025/01/image-3.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2025/01/image-3.jpg"
+            alt="SBHacks 2025: 1st Place Entertainment"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/sbhacks-2025/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    SBHacks 2025: 1st Place Entertainment
+                </h2>
+            </header>
+                <div class="post-card-excerpt">During SBHacks 2025 we won best entertainment app with Baddy Buddy: Advanced Analytics for Badminton.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2025-01-16">Jan 16, 2025</time>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="https://blog.dylanlu.com">Dylan&#x27;s Dev Blog</a> &copy; 2025</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="/assets/built/casper.js?v=994fd11a3c"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
